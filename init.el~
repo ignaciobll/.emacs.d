@@ -1,0 +1,5 @@
+(add-to-list 'load-path "~/.emacs.d/settings/")
+
+(require 'package-settings)
+
+(add-to-list 'auto-mode-alist '("\\.ens$" . as-mode))
