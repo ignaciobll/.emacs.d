@@ -1,5 +1,15 @@
 (add-to-list 'load-path "~/.emacs.d/settings/")
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/cyberpunk-theme.el")
+
+;;---------------------------------------------------------------------
+;; Load configs for specific features and mode
+;;---------------------------------------------------------------------
+
 (require 'package-settings)
 
-(add-to-list 'auto-mode-alist '("\\.ens$" . as-mode))
+
+
+
+
+(provide 'init)

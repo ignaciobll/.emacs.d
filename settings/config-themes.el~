@@ -1,0 +1,5 @@
+(load-theme 'monokai t)
+
+(global-linum-mode 1)
+
+(provide 'config-themes)
