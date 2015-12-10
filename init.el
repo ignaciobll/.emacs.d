@@ -14,13 +14,16 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 
-;;-------  Winner Moder --------------
-;; Mejor navegación entre ventanas
+;;-------  Wind Move   ---------------
+;; Manejo de ventanas (buffers) con flechas de dirección
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
-(when (fboundp 'winner-mode)
-  (winner-mode 1))
+;;-------- Helm ----------------------
+(require 'helm)
+(global-set-key (kbd "M-x") 'helm-M-x)
+;;---------------------------------------------------------------------
 
-;;------------------------------------
 
 (load-theme 'monokai t)
 
@@ -34,6 +37,12 @@
 ;;----------------------------------------------------------------------
 ;;-----  Global KeyBindings
 ;;----------------------------------------------------------------------
+
+;;---------- Wind move
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")   'windmove-down)
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
