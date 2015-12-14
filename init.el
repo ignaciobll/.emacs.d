@@ -49,6 +49,13 @@
 (require 'org-ac)
 (org-ac/config-default)
 
+;;------------------ YASnippets ---------------------------------------
+
+(require 'yasnippet)
+(yas/initialize)
+
+(add-to-list 'yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets/")
+(yas-global-mode t)
 ;;----------------------------------------------------------------------
 ;;-----  Global KeyBindings
 ;;----------------------------------------------------------------------
