@@ -41,6 +41,14 @@
 
 (setq multi-term-program "/bin/zsh")
 
+
+;;--------------------Auto Complete -----------------------------------
+(require 'auto-complete)
+(global-auto-complete-mode 1)
+
+(require 'org-ac)
+(org-ac/config-default)
+
 ;;----------------------------------------------------------------------
 ;;-----  Global KeyBindings
 ;;----------------------------------------------------------------------
