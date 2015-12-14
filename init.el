@@ -11,7 +11,7 @@
 (setq load-path (cons  "~/.emacs.d/modes/org-mode/lisp" load-path))
 (setq load-path (cons "~/.emacs.d/modes/org-mode/contrib/lisp" load-path))
 
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive|\\|txt\\)$" . org-mode))
 
 
 ;;-------  Wind Move   ---------------
@@ -21,7 +21,14 @@
 
 ;;-------- Helm ----------------------
 (require 'helm)
+
+(helm-autoresize-mode 1)
+
+ 
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
 ;;---------------------------------------------------------------------
 
 
