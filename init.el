@@ -1,3 +1,6 @@
+;;Guardar la última sesión al salir
+(desktop-save-mode 1)
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -13,6 +16,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive|\\|txt\\)$" . org-mode))
 
+(setq org-src-fontify-natively t)
 
 ;;-------  Wind Move   ---------------
 ;; Manejo de ventanas (buffers) con flechas de dirección
@@ -29,6 +33,7 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
+(global-set-key (kbd "C-ñ") 'helm-next-source)
 ;;---------------------------------------------------------------------
 
 
@@ -41,10 +46,24 @@
 
 (setq multi-term-program "/bin/zsh")
 
+;;------------------- Org-mode ---------------------------------------
+
+(setq org-log-done 'time) ;;Marcar fecha de tarea completada
+
+(setq org-agenda-files (list "~/Documents/General.org"
+                             "~/Documents/ACM/ACM.org"
+			     "~/Documents/Katas/Katas.org"
+                             "~/Documents/UPM/UPM.org")) ; Global TODO list
+
+(setq org-agenda-include-diary t)
+
 
 ;;--------------------Auto Complete -----------------------------------
 (require 'auto-complete)
 (global-auto-complete-mode 1)
+
+(add-hook 'term-mode-hook (lambda()
+        (setq yas-dont-activate t)))
 
 (require 'org-ac)
 (org-ac/config-default)
@@ -55,7 +74,16 @@
 (yas/initialize)
 
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets/")
-(yas-global-mode t)
+
+;;----------------- Java auto complete mode --------------------------
+
+(add-to-list 'load-path "~/.emacs.d/plugins/ajc-java-complete/")
+(require 'ajc-java-complete-config)
+(add-hook 'java-mode-hook 'ajc-java-complete-mode)
+(add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
+
+(setq ajc-tag-file-list (list (expand-file-name "~/.java_base.tag")))
+
 ;;----------------------------------------------------------------------
 ;;-----  Global KeyBindings
 ;;----------------------------------------------------------------------
