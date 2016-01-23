@@ -46,7 +46,7 @@
 
 (setq multi-term-program "/bin/zsh")
 
-;;------------------- Org-mode ---------------------------------------
+;;------------------- Org-mode -----------------------------------------
 
 (setq org-log-done 'time) ;;Marcar fecha de tarea completada
 
@@ -57,6 +57,11 @@
 
 (setq org-agenda-include-diary t)
 
+;;----------------- Org Babel -----------------------------------------
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t))) ; this line activates dot
 
 ;;--------------------Auto Complete -----------------------------------
 (require 'auto-complete)
