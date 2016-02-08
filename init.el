@@ -24,16 +24,15 @@
   (windmove-default-keybindings))
 
 ;;-------- Helm ----------------------
+(require 'helm-config)
 (require 'helm)
 
 (helm-autoresize-mode 1)
 
- 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
-(global-set-key (kbd "C-ñ") 'helm-next-source)
 ;;---------------------------------------------------------------------
 
 
@@ -50,10 +49,10 @@
 
 (setq org-log-done 'time) ;;Marcar fecha de tarea completada
 
-(setq org-agenda-files (list "~/Documents/General.org"
-                             "~/Documents/ACM/ACM.org"
-			     "~/Documents/Katas/Katas.org"
-                             "~/Documents/UPM/UPM.org")) ; Global TODO list
+(setq org-agenda-files (list "~/org/General.org"
+                             "~/org/ACM/ACM.org"
+			     "~/org/Katas/Katas.org"
+                             "~/org/UPM/UPM.org")) ; Global TODO list
 
 (setq org-agenda-include-diary t)
 
@@ -61,11 +60,15 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((dot . t))) ; this line activates dot
+ '((dot . t)
+   (latex . t)
+   (java . t)
+   (python . t)
+   )) ; this line activates dot
 
 ;;--------------------Auto Complete -----------------------------------
 (require 'auto-complete)
-(global-auto-complete-mode 1)
+(global-auto-complete-mode t)
 
 (add-hook 'term-mode-hook (lambda()
         (setq yas-dont-activate t)))
@@ -103,3 +106,17 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
