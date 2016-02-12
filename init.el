@@ -33,6 +33,8 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
+(setq helm-split-window-in-side-p       t) ; open helm buffer inside current window
+(helm-mode 1)
 ;;---------------------------------------------------------------------
 
 
@@ -63,8 +65,13 @@
  '((dot . t)
    (latex . t)
    (java . t)
+   (sh . t)
    (python . t)
    )) ; this line activates dot
+
+;;---------------- Ox - Reveal ----------------------------------------
+
+;;(require 'ox-reveal)
 
 ;;--------------------Auto Complete -----------------------------------
 (require 'auto-complete)
@@ -85,12 +92,12 @@
 
 ;;----------------- Java auto complete mode --------------------------
 
-(add-to-list 'load-path "~/.emacs.d/plugins/ajc-java-complete/")
-(require 'ajc-java-complete-config)
-(add-hook 'java-mode-hook 'ajc-java-complete-mode)
-(add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
+;;(add-to-list 'load-path "~/.emacs.d/plugins/ajc-java-complete/")
+;;(require 'ajc-java-complete-config)
+;;(add-hook 'java-mode-hook 'ajc-java-complete-mode)
+;;(add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
 
-(setq ajc-tag-file-list (list (expand-file-name "~/.java_base.tag")))
+;;(setq ajc-tag-file-list (list (expand-file-name "~/.java_base.tag")))
 
 ;;----------------------------------------------------------------------
 ;;-----  Global KeyBindings
@@ -113,7 +120,13 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org"))))
+    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org")))
+ '(org-file-apps
+   (quote
+    ((auto-mode . emacs)
+     ("\\.mm\\'" . default)
+     ("\\.x?html?\\'" . default)
+     ("\\.pdf\\'" . emacs)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
