@@ -57,6 +57,11 @@
        nil "Edit all lines matching a given regexp" single
        ((:url . "http://elpa.gnu.org/packages/all.html")
 	(:keywords "matching"))])
+ (ampc .
+       [(0 2)
+	nil "Asynchronous Music Player Controller" single
+	((:url . "http://elpa.gnu.org/packages/ampc.html")
+	 (:keywords "ampc" "mpc" "mpd"))])
  (ascii-art-to-unicode .
 		       [(1 9)
 			nil "a small artist adjunct" single
@@ -295,9 +300,9 @@
 		  ((:keywords "convenience")
 		   (:url . "https://github.com/ergoemacs/ergoemacs-mode"))])
  (exwm .
-       [(0 1)
+       [(0 2)
 	((xelb
-	  (0 3)))
+	  (0 5)))
 	"Emacs X Window Manager" tar
 	((:keywords "unix")
 	 (:url . "https://github.com/ch11ng/exwm"))])
@@ -492,8 +497,8 @@
 	   ((:url . "http://elpa.gnu.org/packages/minimap.html")
 	    (:keywords))])
  (multishell .
-	     [(1 1 3)
-	      nil "facilitate multiple local and remote shell buffers" tar
+	     [(1 1 5)
+	      nil "Easily use multiple shell buffers, local and remote." tar
 	      ((:keywords "processes")
 	       (:url . "https://github.com/kenmanheimer/EmacsMultishell"))])
  (muse .
@@ -826,7 +831,7 @@
 	 ((:url . "http://elpa.gnu.org/packages/xclip.html")
 	  (:keywords "convenience" "tools"))])
  (xelb .
-       [(0 4)
+       [(0 5)
 	((emacs
 	  (24 4))
 	 (cl-generic
