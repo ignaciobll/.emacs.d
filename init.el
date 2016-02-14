@@ -18,6 +18,7 @@
 
 (setq org-src-fontify-natively t)
 
+
 ;;-------  Wind Move   ---------------
 ;; Manejo de ventanas (buffers) con flechas de dirección
 (when (fboundp 'windmove-default-keybindings)
@@ -46,6 +47,18 @@
 (require 'multi-term)
 
 (setq multi-term-program "/bin/zsh")
+
+
+;;-------------------------   ECLIM ------------------------------------
+
+(require 'eclim)
+(global-eclim-mode)
+
+(require 'eclimd) ;; Para controlar también eclimd
+
+(setq help-at-pt-display-when-idle t)
+(setq help-at-pt-timer-delay 0.1)
+(help-at-pt-set-timer)
 
 ;;------------------- Org-mode -----------------------------------------
 
