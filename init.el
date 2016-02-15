@@ -114,6 +114,15 @@
 (yas-reload-all)
 (add-hook 'java-mode-hook #'yas-minor-mode)
 
+;; ---------------------  MAGIT --------------------------------------
+
+(global-set-key (kbd "C-x g") 'magit-status)
+
+
+
+
+
+
 ;;----------------- Java auto complete mode --------------------------
 
 ;;(add-to-list 'load-path "~/.emacs.d/plugins/ajc-java-complete/")
