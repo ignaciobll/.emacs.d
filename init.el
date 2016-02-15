@@ -53,7 +53,6 @@
 
 (require 'eclim)
 
-
 (require 'eclimd) ;; Para controlar también eclimd
 
 (setq help-at-pt-display-when-idle t)
@@ -111,6 +110,9 @@
 (yas/initialize)
 
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets/")
+
+(yas-reload-all)
+(add-hook 'java-mode-hook #'yas-minor-mode)
 
 ;;----------------- Java auto complete mode --------------------------
 
