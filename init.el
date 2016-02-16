@@ -67,6 +67,8 @@
 (require 'ac-emacs-eclim-source)
 (ac-emacs-eclim-config)
 
+(setq eclim-auto-save nil) ;;Evitar que guarde tras cualquier entrada
+
 (global-eclim-mode)
 ;;------------------- Org-mode -----------------------------------------
 
