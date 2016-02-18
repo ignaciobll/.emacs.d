@@ -123,7 +123,12 @@
 
 
 
+;; -------------------- xah Math input -------------------------------
 
+(require 'xah-math-input)
+
+(add-hook 'org-mode-hook 'xah-math-input-mode)
+;; http://ergoemacs.org/emacs/xmsi-math-symbols-input.htmla
 
 ;;----------------- Java auto complete mode --------------------------
 
