@@ -46,13 +46,19 @@
 ;; -------------------------- Themes ---------------------------------
 (load-theme 'gruvbox t)
 
-;;------------------------- Rainbow Delimiters ------------------------
+;;------------------------- Linum Relativa ---------------------------
 
+(require 'linum-relative)
+
+(linum-relative-on)
+
+;;------------------------- Rainbow Delimiters ------------------------
+;; https://github.com/Fanael/rainbow-delimiters
 (require 'rainbow-delimiters)
 
 (add-hook 'java-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'c-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'elis-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'elisp-mode-hook 'rainbow-delimiters-mode)
 
 ;;--------------------------------------------------------------------
 
