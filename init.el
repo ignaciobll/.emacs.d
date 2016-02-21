@@ -46,8 +46,15 @@
 ;; -------------------------- Themes ---------------------------------
 (load-theme 'gruvbox t)
 
-;;-------------------------------------------------------------------
+;;------------------------- Rainbow Delimiters ------------------------
 
+(require 'rainbow-delimiters)
+
+(add-hook 'java-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'c-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'elis-mode-hook 'rainbow-delimiters-mode)
+
+;;--------------------------------------------------------------------
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
