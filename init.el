@@ -11,12 +11,16 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+;;------------------------ Org mode -------------------------------------------
+
 (setq load-path (cons  "~/.emacs.d/modes/org-mode/lisp" load-path))
 (setq load-path (cons "~/.emacs.d/modes/org-mode/contrib/lisp" load-path))
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive|\\|txt\\)$" . org-mode))
 
 (setq org-src-fontify-natively t)
+
+(setq org-default-notes-file "~/org/Notas.org")
 
 
 ;;-------  Wind Move   ---------------
@@ -34,15 +38,21 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
-(setq helm-split-window-in-side-p       t) ; open helm buffer inside current window
+(setq helm-split-window-in-side-p t) ; open helm buffer inside current window
 (helm-mode 1)
-;;---------------------------------------------------------------------
 
 
+
+;; -------------------------- Themes ---------------------------------
 (load-theme 'monokai t)
+
+;;-------------------------------------------------------------------
+
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+
+;; -------------------------------- Multi - term ----------------------
 
 (require 'multi-term)
 
@@ -191,9 +201,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("badc4f9ae3ee82a5ca711f3fd48c3f49ebe20e6303bba1912d4e2d19dd60ec98" "6cd8802e31b8d5c169a8043f953d34b9972ee69241678a46970140c644960c7b" default)))
  '(org-agenda-files
    (quote
-    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org")))
+    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org"
+     "~/org/Tareas.org")))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
