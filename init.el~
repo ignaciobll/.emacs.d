@@ -18,6 +18,7 @@
 
 (setq org-src-fontify-natively t)
 
+
 ;;-------  Wind Move   ---------------
 ;; Manejo de ventanas (buffers) con flechas de dirección
 (when (fboundp 'windmove-default-keybindings)
@@ -35,18 +36,46 @@
 
 (setq helm-split-window-in-side-p       t) ; open helm buffer inside current window
 (helm-mode 1)
-;;---------------------------------------------------------------------
 
 
+
+;; -------------------------- Themes ---------------------------------
 (load-theme 'monokai t)
+
+;;-------------------------------------------------------------------
+
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+
+;; -------------------------------- Multi - term ----------------------
 
 (require 'multi-term)
 
 (setq multi-term-program "/bin/zsh")
 
+
+;;-------------------------   ECLIM ------------------------------------
+
+(require 'eclim)
+
+(require 'eclimd) ;; Para controlar también eclimd
+
+(setq help-at-pt-display-when-idle t)
+(setq help-at-pt-timer-delay 0.1)
+(help-at-pt-set-timer)
+
+;; regular auto-complete initialization
+(require 'auto-complete-config)
+(ac-config-default)
+
+;; add the emacs-eclim source
+(require 'ac-emacs-eclim-source)
+(ac-emacs-eclim-config)
+
+(setq eclim-auto-save nil) ;;Evitar que guarde tras cualquier entrada
+
+(global-eclim-mode)
 ;;------------------- Org-mode -----------------------------------------
 
 (setq org-log-done 'time) ;;Marcar fecha de tarea completada
@@ -58,6 +87,24 @@
 
 (setq org-agenda-include-diary t)
 
+
+;;------------------ Minted -- colourful code exports -----------------
+
+
+
+;; Include the latex-exporter
+(require 'ox-latex)
+;; Add minted to the defaults packages to include when exporting.
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+;; Tell the latex export to use the minted package for source
+;; code coloration.
+(setq org-latex-listings 'minted)
+;; Let the exporter use the -shell-escape option to let latex
+;; execute external programs.
+;; This obviously and can be dangerous to activate!
+(setq org-latex-pdf-process
+      '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
 ;;----------------- Org Babel -----------------------------------------
 
 (org-babel-do-load-languages
@@ -68,6 +115,21 @@
    (sh . t)
    (python . t)
    )) ; this line activates dot
+
+;; ----------------- Auto indentado -----------------------------------
+
+;; Indent Fucking Whole Buffer
+(defun iwb ()
+  "Indent whole buffer"
+  (interactive)
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max))
+  (message "Indent buffer: Done.")
+  )
+
+(global-set-key "\M-i" 'iwb)
+
 
 ;;---------------- Ox - Reveal ----------------------------------------
 
@@ -89,6 +151,23 @@
 (yas/initialize)
 
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets/")
+
+(yas-reload-all)
+(add-hook 'java-mode-hook #'yas-minor-mode)
+
+;; ---------------------  MAGIT --------------------------------------
+
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+
+
+;; -------------------- xah Math input -------------------------------
+
+(require 'xah-math-input)
+
+(add-hook 'org-mode-hook 'xah-math-input-mode)
+;; http://ergoemacs.org/emacs/xmsi-math-symbols-input.htmla
 
 ;;----------------- Java auto complete mode --------------------------
 
@@ -118,12 +197,43 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("badc4f9ae3ee82a5ca711f3fd48c3f49ebe20e6303bba1912d4e2d19dd60ec98" "6cd8802e31b8d5c169a8043f953d34b9972ee69241678a46970140c644960c7b" default)))
  '(org-agenda-files
    (quote
-    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org"))))
+    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org")))
+ '(org-file-apps
+   (quote
+    ((auto-mode . emacs)
+     ("\\.mm\\'" . default)
+     ("\\.x?html?\\'" . default)
+     ("\\.pdf\\'" . emacs)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(defun diary-schedule (m1 d1 y1 m2 d2 y2 dayname)
+      "Entry applies if date is between dates on DAYNAME.  
+    Order of the parameters is M1, D1, Y1, M2, D2, Y2 if
+    `european-calendar-style' is nil, and D1, M1, Y1, D2, M2, Y2 if
+    `european-calendar-style' is t. Entry does not apply on a history."
+      (let ((date1 (calendar-absolute-from-gregorian
+                    (if european-calendar-style
+                        (list d1 m1 y1)
+                      (list m1 d1 y1))))
+            (date2 (calendar-absolute-from-gregorian
+                    (if european-calendar-style
+                        (list d2 m2 y2)
+                      (list m2 d2 y2))))
+            (d (calendar-absolute-from-gregorian date)))
+        (if (and 
+             (<= date1 d) 
+             (<= d date2)
+             (= (calendar-day-of-week date) dayname)
+             (not (check-calendar-holidays date))
+             )
+             entry)))
