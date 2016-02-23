@@ -20,8 +20,14 @@
 
 (setq org-src-fontify-natively t)
 
-(setq org-default-notes-file "~/org/Notas.org")
+(setq org-default-notes-file "~/org/organizer.org")
 
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
+
+;;------------- Org Journal ----------
+
+(require 'org-journal)
+(setq org-journal-dir "~/org/personal/journal/")
 
 ;;-------  Wind Move   ---------------
 ;; Manejo de ventanas (buffers) con flechas de dirección
@@ -46,11 +52,16 @@
 ;; -------------------------- Themes ---------------------------------
 (load-theme 'gruvbox t)
 
-;;------------------------- Linum Relativa ---------------------------
+;;------------------------- Linum Relative ---------------------------
 
-(require 'linum-relative)
+;;(require 'linum-relative)
 
-(linum-relative-on)
+;;(linum-relative-on)
+
+;; ------------------------- Auto fill -------------------------------
+
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+(global-set-key (kbd "C-c q") 'auto-fill-mode)
 
 ;;------------------------- Rainbow Delimiters ------------------------
 ;; https://github.com/Fanael/rainbow-delimiters
@@ -103,7 +114,6 @@
                              "~/org/UPM/UPM.org")) ; Global TODO list
 
 (setq org-agenda-include-diary t)
-
 
 ;;------------------ Minted -- colourful code exports -----------------
 
@@ -214,13 +224,28 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#3c3836" "#fb4934" "#b8bb26" "#fabd2f" "#83a598" "#d3869b" "#8ec07c" "#ebdbb2"])
  '(custom-safe-themes
    (quote
-    ("badc4f9ae3ee82a5ca711f3fd48c3f49ebe20e6303bba1912d4e2d19dd60ec98" "6cd8802e31b8d5c169a8043f953d34b9972ee69241678a46970140c644960c7b" default)))
+    ("b5956c7bc8853dbb807040101d610bea5a0ce82d26235efa18d2e6a703231343" "badc4f9ae3ee82a5ca711f3fd48c3f49ebe20e6303bba1912d4e2d19dd60ec98" "6cd8802e31b8d5c169a8043f953d34b9972ee69241678a46970140c644960c7b" default)))
  '(org-agenda-files
    (quote
-    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org"
-     "~/org/Tareas.org")))
+    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org" "~/org/Tareas.org" "~/org/personal/")))
+ '(org-capture-templates
+   (quote
+    (("d" "Link a los apuntes. Incluyendo fecha." item
+      (file "~/org/UPM/UPM.org")
+      (file "~/org/personal/templates/daily-notes.org"))
+     ("K" "Entrada para el Dr. Kata" entry
+      (file+headline "~/org/organizer.org" "Dr. Kata - Seguimiento")
+      (file "~/org/personal/templates/DrKataEntry.org"))
+     ("t" "Tarea rápida" entry
+      (file+headline "~/org/organizer.org" "Tareas")
+      (file "~/org/personal/templates/task.org"))
+     ("l" "What I've learned today" entry
+      (file+headline "~/org/organizer.org" "Daily Learn")
+      (file "~/org/personal/templates/wihlt.org")))))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
