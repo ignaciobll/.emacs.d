@@ -71,8 +71,16 @@
 (add-hook 'c-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'elisp-mode-hook 'rainbow-delimiters-mode)
 
-;;--------------------------------------------------------------------
+;;-----------------------  WEB  ----------------------------------
 
+(require 'emmet-mode)
+
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+
+(setq emmet-move-cursor-between-quotes t) ;; default nil
+
+;; ------------------------------------------------------------
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 
