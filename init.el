@@ -83,6 +83,7 @@
 ;; ------------------------------------------------------------
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(scroll-bar-mode -1)
 
 ;; -------------------------------- Multi - term ----------------------
 
@@ -204,7 +205,19 @@
 (add-hook 'org-mode-hook 'xah-math-input-mode)
 ;; http://ergoemacs.org/emacs/xmsi-math-symbols-input.htmla
 
+
+;; ------------------------- Haskell --------------------------------
+
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
+(require 'inf-haskell)
+
+
 ;;----------------- Java auto complete mode --------------------------
+
 
 ;;(add-to-list 'load-path "~/.emacs.d/plugins/ajc-java-complete/")
 ;;(require 'ajc-java-complete-config)
