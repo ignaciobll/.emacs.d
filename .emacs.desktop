@@ -2,87 +2,21 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Sun Feb 21 02:04:48 2016
+;; Created Tue Mar  8 21:15:44 2016
 ;; Desktop file format version 206
 ;; Emacs version 24.5.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (22217 3376 945257 618000) (desktop . "206") "ignaciobll@archo.home" nil nil ((((font-backend xft x) (font . "-unknown-DejaVu Sans Mono-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (font-parameter . "Monospace 11") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (foreground-color . "#F8F8F2") (background-color . "#272822") (mouse-color . "#F8F8F2") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground) (scroll-bar-background . "grey75") (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 13) (alpha) (display-type . color) (background-mode . dark) (cursor-color . "#F8F8F2") (visibility) (frameset--id . "5602-D78B-3B92-F106") (frameset--mini t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0.0") (explicit-name) (height . 52) (width . 95) (left . 0) (top . 0)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 6) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 72) (min-pixel-width . 90) (min-pixel-height-ignore . 36) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 18) (min-pixel-width-safe . 18)) leaf (pixel-width . 886) (pixel-height . 918) (total-width . 98) (total-height . 51) (normal-height . 1.0) (normal-width . 1.0) (buffer "UPM.org" (selected) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 13 2 t nil) (vscroll . 0) (dedicated) (point . 7580) (start . 3305))) (((font-backend xft x) (font . "-unknown-DejaVu Sans Mono-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (font-parameter . "Monospace 11") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (foreground-color . "#F8F8F2") (background-color . "#272822") (mouse-color . "#F8F8F2") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground) (scroll-bar-background . "grey75") (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 13) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . dark) (cursor-color . "#F8F8F2") (environment) (sticky) (frameset--id . "3495-BE3D-021B-D607") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0.0") (explicit-name) (maximized . maximized) (visibility . t) (height . 57) (width . 210) (left . 0) (top . 20)) ((min-height . 4) (min-width . 20) (min-height-ignore . 3) (min-width-ignore . 12) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 72) (min-pixel-width . 180) (min-pixel-height-ignore . 54) (min-pixel-width-ignore . 108) (min-pixel-height-safe . 18) (min-pixel-width-safe . 36)) hc (pixel-width . 1922) (pixel-height . 1022) (total-width . 214) (total-height . 56) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 959) (pixel-height . 1022) (total-width . 107) (total-height . 56) (normal-height . 1.0) (normal-width . 0.5) (buffer "init.el" (selected) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 13 2 t nil) (vscroll . 0) (dedicated) (point . 840) (start . 1))) (leaf (last . t) (pixel-width . 963) (pixel-height . 1022) (total-width . 107) (total-height . 56) (normal-height . 1.0) (normal-width . 0.5) (buffer "*magit: .emacs.d" (selected . t) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 13 2 t nil) (vscroll . 0) (dedicated) (point . 266) (start . 1)))))])
+(setq desktop-saved-frameset [frameset 1 (22239 13040 755224 593000) (desktop . "206") "ignaciobll@archo.home" nil nil ((((font-backend xft x) (font . "-unknown-DejaVu Sans Mono-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (font-parameter . "Monospace 11") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (foreground-color . "#fdf4c1") (background-color . "#282828") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground) (scroll-bar-background . "grey75") (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . dark) (cursor-color . "#fdf4c1") (environment) (sticky) (frameset--id . "4336-5670-636C-7B0F") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (visibility . t) (display . ":0.0") (explicit-name) (height . 57) (width . 211) (left . 1960) (top . 20)) ((min-height . 4) (min-width . 20) (min-height-ignore . 2) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 72) (min-pixel-width . 180) (min-pixel-height-ignore . 36) (min-pixel-width-ignore . 72) (min-pixel-height-safe . 18) (min-pixel-width-safe . 36)) hc (pixel-width . 1922) (pixel-height . 1022) (total-width . 214) (total-height . 56) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 959) (pixel-height . 1022) (total-width . 107) (total-height . 56) (normal-height . 1.0) (normal-width . 0.5) (buffer "init.el" (selected) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 0 0 nil nil) (vscroll . 0) (dedicated) (point . 1461) (start . 774))) (leaf (last . t) (pixel-width . 963) (pixel-height . 1022) (total-width . 107) (total-height . 56) (normal-height . 1.0) (normal-width . 0.5) (buffer "*magit: .emacs.d" (selected . t) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 184) (start . 1)))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("init" "C-c" "org" "c" "init" "maloka" "ejercicio" "smtp" "firefox" "concu" "hook" "org" "auto" "auto-complete " "java " "debug"))
+(setq search-ring '("ox-re" "space" "resta" "tool" "enco" "volume" "volumne" "helm" "redes" "volume" "ha" "ecli" "notas.org" "org" "linu" "doc"))
 (setq regexp-search-ring nil)
-(setq register-alist nil)
-(setq file-name-history '("/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "/etc/mail.rc" "~/Documents/ACM/AdaByron2016/Problemas/Verano/Verano.class" "~/.zshrc" "~/org/UPM/UPM.pdf" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "/home/ignaciobll/Documents/Katas/DrKata/.git/COMMIT_EDITMSG" "~/Documents/Katas/DrKata/README.org" "~/Documents/ACM/AdaByron2016/Problemas/Verano/Verano.java" "~/org/Katas/Katas.pdf" "~/Documents/UPM/BBDD/Clase  2  semana  2  Bases de datos.docx" "~/Documents/UPM/BBDD/modelo relacional y paso a tablas.pptx" "~/.emacs.d/init.el" "~/Documents/ACM/AdaByron2016/Problemas/Verano/hipermegatest.txt" "~/Documents/UPM/Concurrencia/CC_01_Threads.java" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/Problemas/Tragaperras/Tragaperras.java" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "~/.emacs.d/.gitignore" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/Problemas/TIA/src/CodigoTIA.java" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/MERGE_MSG" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/.gitignore" "~/Documents/ACM/AdaByron2016/2015-AdaByron/Crisis/README.org" "~/Documents/UPM/Redes/T1_1.4_2015-2016_S2_.pdf" "~/org/UPM/Redes/Ejercicios.pdf" "~/Documents/UPM/Redes/T1_1.3_2015-2016_S2_Aula Virtual.pdf" "~/org/UPM/Redes/#apuntes.org#" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/2015-AdaByron/Crisis/test.txt" "~/work/Crisis/src/Crisis.java" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/2015-AdaByron/Crisis/Crisis.java" "~/magit.org" "~/diary" "~/Documents/ACM/Haskell/baby.hs" "~/Documents/UPM/Calculo/Ejer1_Sucesiones_1516.pdf" "~/Documents/ACM/AdaByron2016/README.md" "~/Documents/ACM/GoogleHashCode/hash2016/src/Simulation.java" "~/Documents/ACM/GoogleHashCode/hash2016/src/Order.java" "~/Documents/ACM/GoogleHashCode/hash2016/src/GH2016.java" "~/Documents/ACM/GoogleHashCode/hash2016/mother_of_all_warehouses.in" "~/Documents/ACM/GoogleHashCode/hash2016/.gitignore" "~/Documents/ACM/GoogleHashCode/hash2016/delivery.pdf" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/src/Fachada.java" "~/Documents/UPM/BBDD/enunciados segunda  semana.docx" "~/org/UPM/BBDD/20160203-DAT.org" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/src/Painting.java" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/src/GoogleTry.java" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/learn_and_teach.in" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/right_angle.in" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/.gitignore" "~/Documents/UPM/Calculo/Tema1_CalcTransp_1516.pdf" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/README.md" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/painting.pdf" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/hashcode2015_final_task.pdf" "~/Documents/UPM/PyE2/1.1 PPoisson.pdf" "~/Documents/UPM/Redes/T1_1.1_1-2_2015-2016_S2_ Aula_Virtual.pdf" "~/.profile" "~/.emacs.d/plugins/yasnippet/snippets/java-mode/equals" "~/Documents/UPM/Concurrencia/ejercicios-cortos/ejercicios-cortos.pdf" "~/Documents/UPM/Concurrencia/CC_ConcurrenciaInteraccion.pdf" "~/Documents/UPM/GestionTIC/Tema I Elementos de una organizaciÅÛn.pdf" "~/Documents/Notas/guitarra.org" "~/.emacs.d/plugins/yasnippet/snippets/cc-mode/main" "~/.emacs.d/plugins/yasnippet/snippets/cc-mode/for_n" "~/.emacs.d/plugins/yasnippet/snippets/cc-mode/for" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/string" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/malloc" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/compile" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/assert" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/.yas-parents" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/unistd" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/printf" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/define" "~/.emacs.d/plugins/yasnippet/snippets/c-mode/stdio" "~/rclua.lua" "~/.config/awesome/rc.lua" "~/Documents/UPM/MDiscreta2/Tema4.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org" "~/Documents/UPM/ANumerica/Punto Extra/bitacora.org" "~/org/General.org" "~/Documents/UPM/UPM.org" "~/Documents/UPM/UPM.org~" "~/Documents/UPM/ANumerica/Tareas-Anumerica.org" "~/Documents/Notas/#guitarra.org#" "~/Documents/Notas/guitarra.org~" "~/Documents/ACM/ACMbot/bot.py" "~/Documents/ACM/ACMbot/data/data.json" "~/Documents/PPS/tarea-2.2.2015-2016/bitacora.txt" "~/Documents/PPS/tarea-2.3.2015-2016/bitacora.org" "~/Documents/UPM/MDiscreta2/#Tema5.org#" "~/.Xresources" "~/Documents/Notas/CumpleaÅÒos.org" "~/Documents/ACM/ACMbot/.gitignore" "~/Documents/ACM/ACMbot/README.org"))
+(setq register-alist '((117 file . "~/org/UPM/UPM.org")))
+(setq file-name-history '("/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "~/Documents/UPM/BBDD/Practica 1 - Enunciado.pdf" "~/Documents/UPM/Concurrencia/Concurrencia/src/Almacen1.java" "~/Documents/UPM/Concurrencia/Concurrencia/src/CC_04_MutexSem.java" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "~/Documents/ACM/Ninety-Nine/Haskell/mod.hs" "~/Documents/ACM/Ninety-Nine/Haskell/Problems1-10.hs" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "~/.emacs.d/gruvbox-source-code-theme.el" "~/.emacs.d/gruvbox-theme.el" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "~/Downloads/Telegram Desktop/T2_2015-2016_s2-clase.pdf" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "~/.ssh/id_rsa.pub" "~/Documents/UPM/EC/proyecto-estructura/Filtror.ens" "~/.zshrc" "~/Documents/Notas/CumpleaÅÒos.org" "~/Documents/ACM/AdaByron2016/documentacion.java" "~/Documents/UPM/BBDD/expotaciones  agrarias.docx" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/MERGE_MSG" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "~/Documents/ACM/Ninety-Nine/Haskell/README.org" "~/Documents/ACM/Ninety-Nine/README.org~" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "~/Documents/ACM/ACMbot/bot.py" "~/Documents/ACM/ACMbot/README.org" "~/Documents/Katas/DrKata/index.html" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "~/org/personal/templates/wihlt.org" "~/org/UPM/UPM.org" "~/Documents/ACM/curso-web-2016/boilerplate/index.css" "~/Documents/ACM/curso-web-2016/boilerplate/index.html" "/home/ignaciobll/Documents/ACM/Ninety-Nine/.git/COMMIT_EDITMSG" "~/Documents/ACM/Ninety-Nine/README.org" "~/Documents/UPM/Redes/Alumnos_T1-2015-2016-S1_AulaVirtual.pdf" "~/Documents/UPM/Redes/T1_Test_2015-2016_S2_AulaVirtual.pdf" "~/Documents/UPM/Redes/T1_1-5_2015-2016_s2.pdf" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "~/org/personal/journal/20160223" "~/Documents/ACM/Ninety-Nine/README.md" "~/Documents/ACM/AdaByron2016/Problemas/Verano/Verano2.java" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/Problemas/Verano/Verano.java" "~/Documents/UPM/Concurrencia/LEEME.org" "~/Documents/ACM/Haskell/baby.hs" "/home/ignaciobll/Documents/UPM/.git/COMMIT_EDITMSG" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "/etc/mail.rc" "~/Documents/ACM/AdaByron2016/Problemas/Verano/Verano.class" "~/org/UPM/UPM.pdf" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "/home/ignaciobll/Documents/Katas/DrKata/.git/COMMIT_EDITMSG" "~/Documents/Katas/DrKata/README.org" "~/org/Katas/Katas.pdf" "~/Documents/UPM/BBDD/Clase  2  semana  2  Bases de datos.docx" "~/Documents/UPM/BBDD/modelo relacional y paso a tablas.pptx" "~/.emacs.d/init.el" "~/Documents/ACM/AdaByron2016/Problemas/Verano/hipermegatest.txt" "~/Documents/UPM/Concurrencia/CC_01_Threads.java" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/Problemas/Tragaperras/Tragaperras.java" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "~/.emacs.d/.gitignore" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/Problemas/TIA/src/CodigoTIA.java" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/MERGE_MSG" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/.gitignore" "~/Documents/ACM/AdaByron2016/2015-AdaByron/Crisis/README.org" "~/Documents/UPM/Redes/T1_1.4_2015-2016_S2_.pdf" "~/org/UPM/Redes/Ejercicios.pdf" "~/Documents/UPM/Redes/T1_1.3_2015-2016_S2_Aula Virtual.pdf" "~/org/UPM/Redes/#apuntes.org#" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/2015-AdaByron/Crisis/test.txt" "~/work/Crisis/src/Crisis.java" "/home/ignaciobll/Documents/ACM/AdaByron2016/.git/COMMIT_EDITMSG" "/home/ignaciobll/.emacs.d/.git/COMMIT_EDITMSG" "~/Documents/ACM/AdaByron2016/2015-AdaByron/Crisis/Crisis.java" "~/magit.org" "~/diary" "~/Documents/UPM/Calculo/Ejer1_Sucesiones_1516.pdf" "~/Documents/ACM/AdaByron2016/README.md" "~/Documents/ACM/GoogleHashCode/hash2016/src/Simulation.java" "~/Documents/ACM/GoogleHashCode/hash2016/src/Order.java" "~/Documents/ACM/GoogleHashCode/hash2016/src/GH2016.java" "~/Documents/ACM/GoogleHashCode/hash2016/mother_of_all_warehouses.in" "~/Documents/ACM/GoogleHashCode/hash2016/.gitignore" "~/Documents/ACM/GoogleHashCode/hash2016/delivery.pdf" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/src/Fachada.java" "~/Documents/UPM/BBDD/enunciados segunda  semana.docx" "~/org/UPM/BBDD/20160203-DAT.org" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/src/Painting.java" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/src/GoogleTry.java" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/learn_and_teach.in" "~/Documents/ACM/GoogleHashCode/Google-Hash-2016/right_angle.in"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
-(desktop-create-buffer 206
-  "/home/ignaciobll/.emacs.d/init.el"
-  "init.el"
-  'emacs-lisp-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode auto-revert-mode)
-  840
-  '(495 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/org/Notas.org"
-  "Notas.org"
-  'org-mode
-  '(helm-mode auto-complete-mode xah-math-input-mode)
-  1
-  '(1 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/org/Tareas.org"
-  "Tareas.org"
-  'org-mode
-  '(helm-mode auto-complete-mode xah-math-input-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/Documents/ACM/AdaByron2016/Problemas/Verano/Verano.java"
-  "Verano.java"
-  'java-mode
-  '(abbrev-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode auto-revert-mode)
-  1636
-  '(1776 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/Documents/ACM/AdaByron2016/Problemas/Verano/Verano.c "
-  "Verano.c "
-  'c-mode
-  '(abbrev-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  1
-  '(187 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/test.pdf"
-  "test.pdf"
-  'doc-view-mode
-  '(helm-mode yas-minor-mode xah-math-input-mode)
-  1
-  '(nil nil)
-  t
-  '((page . 1) (slice))
-  '((buffer-file-coding-system . no-conversion)))
-
 (desktop-create-buffer 206
   "/home/ignaciobll/Documents/UPM/Concurrencia/ejercicios-cortos/ejercicios-cortos.pdf"
   "ejercicios-cortos.pdf"
@@ -95,144 +29,100 @@
   '((buffer-file-coding-system . no-conversion)))
 
 (desktop-create-buffer 206
+  "/home/ignaciobll/Documents/UPM/BBDD/Practica 1 - Enunciado.pdf"
+  "Practica 1 - Enunciado.pdf"
+  'doc-view-mode
+  '(helm-mode yas-minor-mode xah-math-input-mode)
+  1
+  '(nil nil)
+  t
+  '((page . 1) (slice))
+  '((buffer-file-coding-system . no-conversion)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(helm-mode rainbow-delimiters-mode auto-complete-mode yas-minor-mode xah-math-input-mode auto-revert-mode smartparens-mode)
+  1461
+  '(4510 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
   "/home/ignaciobll/org/General.org"
   "General.org"
   'org-mode
-  '(overwrite-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  913
-  '(2581 nil)
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  1216
+  '(1225 nil)
   nil
   nil
-  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode . overwrite-mode-textual) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/test.org"
-  "test.org"
-  'org-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  166
-  '(23 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/Documents/UPM/Concurrencia/CC_03_MutexEA.java"
-  "CC_03_MutexEA.java"
-  'java-mode
-  '(abbrev-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  81
-  '(650 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/org/UPM/UPM.org"
-  "UPM.org"
-  'org-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  7580
-  '(6550 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/Documents/UPM/Concurrencia/CC_02_Carrera.java"
-  "CC_02_Carrera.java"
-  'java-mode
-  '(abbrev-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode auto-revert-mode)
-  1713
-  '(1 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/Documents/ACM/AdaByron2016/Problemas/Temperatura/Temperatura.c"
-  "Temperatura.c"
-  'c-mode
-  '(abbrev-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  640
-  '(1 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix)))
+  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines . t)))
 
 (desktop-create-buffer 206
   "/home/ignaciobll/org/ACM/ACM.org"
   "ACM.org"
   'org-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  1058
-  '(1131 nil)
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  3227
+  '(3192 nil)
   nil
   nil
   '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
 
 (desktop-create-buffer 206
-  "/home/ignaciobll/scripts/gitHere.sh"
-  "gitHere.sh"
-  'sh-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  21
-  '(21 nil)
+  "/home/ignaciobll/org/UPM/UPM.org"
+  "UPM.org"
+  'org-mode
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  8697
+  '(7733 nil)
   nil
   nil
-  '((buffer-file-coding-system . utf-8-unix)))
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
 
 (desktop-create-buffer 206
-  "/home/ignaciobll/Documents/ACM/AdaByron2016/Problemas/Verano/Verano.class"
-  "Verano.class"
-  'fundamental-mode
-  '(helm-mode yas-minor-mode xah-math-input-mode)
+  "/home/ignaciobll/org/UPM/Redes/apuntes.org"
+  "apuntes.org"
+  'org-mode
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  1834
+  '(1834 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/ACM/Ninety-Nine/Haskell/Problems41-50.hs"
+  "Problems41-50.hs"
+  'haskell-mode
+  '(haskell-doc-mode haskell-indent-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  359
+  '(359 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/ACM/Ninety-Nine/Haskell/Problems31-40.hs"
+  "Problems31-40.hs"
+  'haskell-mode
+  '(haskell-doc-mode haskell-indent-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
   1
   '(nil nil)
   nil
   nil
-  '((buffer-file-coding-system . no-conversion)))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
 
 (desktop-create-buffer 206
-  "/home/ignaciobll/org/UPM/BBDD/20160203-DAT.org"
-  "20160203-DAT.org"
+  "/home/ignaciobll/Documents/UPM/BBDD/Practica 1.org"
+  "Practica 1.org"
   'org-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  6135
-  '(6135 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/.zshrc"
-  ".zshrc"
-  'sh-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  2892
-  '(2916 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/org/Katas/Katas.org"
-  "Katas.org"
-  'org-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  2807
-  '(1 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/Documents/Katas/DrKata/README.org"
-  "README.org"
-  'org-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode auto-revert-mode)
-  2784
-  '(2784 nil)
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  1611
+  '(26 nil)
   nil
   nil
   '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
@@ -242,33 +132,132 @@
   "rc.lua"
   'lua-mode
   '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode auto-revert-mode)
-  23662
-  '(23655 nil)
+  15474
+  '(2307 nil)
   nil
   nil
   '((buffer-file-coding-system . iso-latin-1-unix)))
 
 (desktop-create-buffer 206
-  "/home/ignaciobll/Documents/Notas/guitarra.org"
-  "guitarra.org"
-  'org-mode
-  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  114
+  "/home/ignaciobll/Documents/ACM/Ninety-Nine/Haskell/Problems21-30.hs"
+  "Problems21-30.hs"
+  'haskell-mode
+  '(haskell-doc-mode haskell-indent-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  1
   '(nil nil)
   nil
   nil
-  '((buffer-file-coding-system . undecided-unix) (truncate-lines . t)))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
 
 (desktop-create-buffer 206
-  "/home/ignaciobll/Documents/ACM/AdaByron2016/Problemas/Verano/Tester.java"
-  "Tester.java"
+  "/home/ignaciobll/Documents/ACM/Ninety-Nine/Haskell/Problems11-20.hs"
+  "Problems11-20.hs"
+  'haskell-mode
+  '(haskell-doc-mode haskell-indent-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode auto-revert-mode)
+  991
+  '(1007 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/ACM/Ninety-Nine/Haskell/mod.hs"
+  "mod.hs"
+  'haskell-mode
+  '(haskell-doc-mode haskell-indent-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  1954
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/UPM/Concurrencia/Concurrencia/src/Almacen1.java"
+  "Almacen1.java"
   'java-mode
-  '(abbrev-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
-  179
-  '(142 nil)
+  '(abbrev-mode helm-mode rainbow-delimiters-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  1
+  '(nil nil)
   nil
   nil
   '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/UPM/Concurrencia/Concurrencia/src/CC_04_MutexSem.java"
+  "CC_04_MutexSem.java"
+  'java-mode
+  '(abbrev-mode helm-mode rainbow-delimiters-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  1
+  '(254 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/UPM/Concurrencia/CC_04_MutexSem.java"
+  "CC_04_MutexSem.java"
+  'java-mode
+  '(abbrev-mode helm-mode rainbow-delimiters-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  1766
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/ACM/Ninety-Nine/Haskell/Problems1-10.hs"
+  "Problems1-10.hs"
+  'haskell-mode
+  '(haskell-doc-mode haskell-indent-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode auto-revert-mode)
+  734
+  '(1613 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/.zshrc"
+  ".zshrc"
+  'sh-mode
+  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  2950
+  '(2894 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/Notas/CumpleaÅÒos.org"
+  "CumpleaÅÒos.org"
+  'org-mode
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  261
+  '(261 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/diary"
+  "diary"
+  'diary-mode
+  '(helm-mode yas-minor-mode xah-math-input-mode)
+  1476
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/Documents/Notas/guitarra.org"
+  "guitarra.org"
+  'org-mode
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  86
+  '(1624 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix) (truncate-lines . t)))
 
 (desktop-create-buffer 206
   "/home/ignaciobll/.java_base.tag"
@@ -282,24 +271,46 @@
   '((buffer-file-coding-system . undecided-unix) (case-fold-search)))
 
 (desktop-create-buffer 206
-  "/home/ignaciobll/diary"
-  "diary"
-  'diary-mode
-  '(helm-mode yas-minor-mode xah-math-input-mode)
+  "/home/ignaciobll/org/organizer.org"
+  "organizer.org"
+  'org-mode
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  361
+  '(361 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/org/Katas/Katas.org"
+  "Katas.org"
+  'org-mode
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  8018
+  '(5443 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/org/Tareas.org"
+  "Tareas.org"
+  'org-mode
+  '(auto-fill-mode helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
   1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
+
+(desktop-create-buffer 206
+  "/home/ignaciobll/.emacs.d/elpa/org-20160229/org-loaddefs.el"
+  "org-loaddefs.el"
+  'emacs-lisp-mode
+  '(helm-mode auto-complete-mode yas-minor-mode xah-math-input-mode)
+  88736
   '(nil nil)
   nil
   nil
   '((buffer-file-coding-system . utf-8-unix)))
-
-(desktop-create-buffer 206
-  "/home/ignaciobll/.notes"
-  ".notes"
-  'fundamental-mode
-  '(helm-mode xah-math-input-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  nil)
 
