@@ -169,7 +169,7 @@
 
 ;;---------------- Ox - Reveal ----------------------------------------
 
-;;(require 'ox-reveal)
+(require 'ox-reveal)
 
 ;;--------------------Auto Complete -----------------------------------
 (require 'auto-complete)
