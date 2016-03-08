@@ -1,0 +1,10 @@
+* Emacs Configuration
+
+  - init.el
+    + 
+  - themes/
+    + gruvbox.el
+  - plugins
+    + eclim
+    + yasnippets
+  - 

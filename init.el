@@ -10,24 +10,27 @@
   (package-initialize))
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-
+(add-to-list 'load-path "~/.emacs.d/config/")
 ;;------------------------ Org mode -------------------------------------------
 
-(setq load-path (cons  "~/.emacs.d/modes/org-mode/lisp" load-path))
-(setq load-path (cons "~/.emacs.d/modes/org-mode/contrib/lisp" load-path))
+(require 'theme)
+(require 'org)
 
-(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive|\\|txt\\)$" . org-mode))
+;; (setq load-path (cons  "~/.emacs.d/modes/org-mode/lisp" load-path))
+;; (setq load-path (cons "~/.emacs.d/modes/org-mode/contrib/lisp" load-path))
 
-(setq org-src-fontify-natively t)
+;; (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive|\\|txt\\)$" . org-mode))
 
-(setq org-default-notes-file "~/org/organizer.org")
+;; (setq org-src-fontify-natively t)
 
-(setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
+;; (setq org-default-notes-file "~/org/organizer.org")
 
-;;------------- Org Journal ----------
+;; (setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
 
-(require 'org-journal)
-(setq org-journal-dir "~/org/personal/journal/")
+;; ;;------------- Org Journal ----------
+
+;; (require 'org-journal)
+;; (setq org-journal-dir "~/org/personal/journal/")
 
 ;;-------  Wind Move   ---------------
 ;; Manejo de ventanas (buffers) con flechas de dirección
@@ -48,9 +51,8 @@
 (helm-mode 1)
 
 
-
 ;; -------------------------- Themes ---------------------------------
-(load-theme 'gruvbox t)
+;;(load-theme 'gruvbox t)
 
 ;;------------------------- Linum Relative ---------------------------
 
@@ -60,16 +62,16 @@
 
 ;; ------------------------- Auto fill -------------------------------
 
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-(global-set-key (kbd "C-c q") 'auto-fill-mode)
+;; (add-hook 'org-mode-hook 'turn-on-auto-fill)
+;; (global-set-key (kbd "C-c q") 'auto-fill-mode)
 
 ;;------------------------- Rainbow Delimiters ------------------------
 ;; https://github.com/Fanael/rainbow-delimiters
-(require 'rainbow-delimiters)
+;; (require 'rainbow-delimiters)
 
-(add-hook 'java-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'c-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'elisp-mode-hook 'rainbow-delimiters-mode)
+;; (add-hook 'java-mode-hook 'rainbow-delimiters-mode)
+;; (add-hook 'c-mode-hook 'rainbow-delimiters-mode)
+;; (add-hook 'elisp-mode-hook 'rainbow-delimiters-mode)
 
 ;;-----------------------  WEB  ----------------------------------
 
@@ -81,9 +83,9 @@
 (setq emmet-move-cursor-between-quotes t) ;; default nil
 
 ;; ------------------------------------------------------------
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(scroll-bar-mode -1)
+;; (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+;; (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+;; (scroll-bar-mode -1)
 
 ;; -------------------------------- Multi - term ----------------------
 
@@ -141,16 +143,16 @@
 (setq org-latex-pdf-process
       '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
-;;----------------- Org Babel -----------------------------------------
+;; ;;----------------- Org Babel -----------------------------------------
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((dot . t)
-   (latex . t)
-   (java . t)
-   (sh . t)
-   (python . t)
-   )) ; this line activates dot
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((dot . t)
+;;    (latex . t)
+;;    (java . t)
+;;    (sh . t)
+;;    (python . t)
+;;    )) ; this line activates dot
 
 ;; ----------------- Auto indentado -----------------------------------
 
@@ -198,12 +200,12 @@
 
 
 
-;; -------------------- xah Math input -------------------------------
+;; ;; -------------------- xah Math input -------------------------------
 
-(require 'xah-math-input)
+;; (require 'xah-math-input)
 
-(add-hook 'org-mode-hook 'xah-math-input-mode)
-;; http://ergoemacs.org/emacs/xmsi-math-symbols-input.htmla
+;; (add-hook 'org-mode-hook 'xah-math-input-mode)
+;; ;; http://ergoemacs.org/emacs/xmsi-math-symbols-input.htmla
 
 
 ;; ------------------------- Haskell --------------------------------
@@ -236,10 +238,10 @@
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")   'windmove-down)
 
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-iswitchb)
+;; (global-set-key "\C-cl" 'org-store-link)
+;; (global-set-key "\C-ca" 'org-agenda)
+;; (global-set-key "\C-cc" 'org-capture)
+;; (global-set-key "\C-cb" 'org-iswitchb)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
