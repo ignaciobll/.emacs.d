@@ -2,11 +2,15 @@
 *~
 \#*\#
 /.emacs.desktop
+*.desktop
 /.emacs.desktop.lock
 *.elc
 auto-save-list
 tramp
 .\#*
+*.dat
+
+/elpa/
 
 # Org-mode
 .org-id-locations
