@@ -1,10 +1,34 @@
 * Emacs Configuration
 
   - init.el
-    + 
-  - themes/
-    + gruvbox.el
-  - plugins
-    + eclim
-    + yasnippets
-  - 
+    - theme
+      - gruvbox theme
+      - menu bar, tool bar, scroll bar
+      - rainbow delimiters
+    - orgconfig
+      - journal
+	- org-journal
+      - agenda
+	- diary-schedule (fun)
+      - notes
+      - export
+	- Minted
+	- Reveal
+      - babel
+	- org-babel
+      - xah-math-input
+    - manage
+      - wind-move
+      - auto-fill
+      - auto-indent
+    - helmsettings
+      - helm-config
+      - helm
+    - plugins
+      - yasnippet
+      - magit
+      - auto-complete
+      - multi-term
+    - lang-modes
+      - haskell-mode
+      - emmet-mode (web)

@@ -12,5 +12,4 @@
 (setq helm-split-window-in-side-p t) ; open helm buffer inside current window
 (helm-mode 1)
 
-
 (provide 'helmsettings)
