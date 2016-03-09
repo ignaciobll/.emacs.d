@@ -1,6 +1,6 @@
 * Emacs Configuration
 
-    * init.el
+** init.el
       1. theme
 	 + gruvbox theme
 	 + menu bar, tool bar, scroll bar
