@@ -8,6 +8,9 @@
 auto-save-list
 tramp
 .\#*
+ac-comphist.dat
+
+/elpa/
 
 # Org-mode
 .org-id-locations
