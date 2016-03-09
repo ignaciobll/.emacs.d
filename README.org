@@ -1,11 +1,12 @@
 * Emacs Configuration
 
 ** init.el
-      1. theme
+
+      1) theme
 	 + gruvbox theme
 	 + menu bar, tool bar, scroll bar
 	 + rainbow delimiters
-      2. orgconfig
+      2) orgconfig
 	 + journal
 	   - org-journal
 	 + agenda
@@ -17,18 +18,18 @@
 	 + babel
 	   - org-babel
 	 + xah-math-input
-      3. manage
+      3) manage
 	 + wind-move
 	 + auto-fill
 	 + auto-indent
-      4. helmsettings
+      4) helmsettings
 	 + helm-config
 	 + helm
-      5. plugins
+      5) plugins
 	 + yasnippet
 	 + magit
 	 + auto-complete
 	 + multi-term
-      6. lang-modes
+      6) lang-modes
 	 + haskell-mode
 	 + emmet-mode (web)
