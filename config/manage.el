@@ -18,13 +18,6 @@
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
 
 
-;; -------------------------------- Multi - term ----------------------
-
-(require 'multi-term)
-
-(setq multi-term-program "/bin/zsh")
-
-
 ;; ----------------- Auto indentado -----------------------------------
 
 ;; Indent Fucking Whole Buffer

@@ -2,5 +2,6 @@
 
 (require 'lang-haskell)
 (require 'lang-web)
+;(require 'lang-java)
  
 (provide 'lang-modes)

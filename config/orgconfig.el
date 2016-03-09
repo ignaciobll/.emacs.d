@@ -12,18 +12,8 @@
 (require 'journal)
 (require 'agenda)
 (require 'notes)
-
-;;------------- Org Babel ------------
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((dot . t)
-   (latex . t)
-   (java . t)
-   (sh . t)
-   (python . t)
-   ))
-
+(require 'export)
+(require 'babel)
 
 ;;--------- xah Math input ----------
 
