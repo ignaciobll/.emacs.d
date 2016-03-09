@@ -14,8 +14,11 @@
 ;;------------------------ Org mode -------------------------------------------
 
 (require 'theme)
-(require 'org)
-
+(require 'orgconfig)
+(require 'manage)
+(require 'helmsettings)
+(require 'plugins)
+(require 'lang-modes)
 ;; (setq load-path (cons  "~/.emacs.d/modes/org-mode/lisp" load-path))
 ;; (setq load-path (cons "~/.emacs.d/modes/org-mode/contrib/lisp" load-path))
 
@@ -33,22 +36,22 @@
 ;; (setq org-journal-dir "~/org/personal/journal/")
 
 ;;-------  Wind Move   ---------------
-;; Manejo de ventanas (buffers) con flechas de dirección
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
+;; ;; Manejo de ventanas (buffers) con flechas de dirección
+;; (when (fboundp 'windmove-default-keybindings)
+;; (windmove-default-keybindings))
 
-;;-------- Helm ----------------------
-(require 'helm-config)
-(require 'helm)
+;; ;;-------- Helm ----------------------
+;; (require 'helm-config)
+;; (require 'helm)
 
-(helm-autoresize-mode 1)
+;; (helm-autoresize-mode 1)
 
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
-(setq helm-split-window-in-side-p t) ; open helm buffer inside current window
-(helm-mode 1)
+;; (setq helm-split-window-in-side-p t) ; open helm buffer inside current window
+;; (helm-mode 1)
 
 
 ;; -------------------------- Themes ---------------------------------
@@ -87,11 +90,11 @@
 ;; (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 ;; (scroll-bar-mode -1)
 
-;; -------------------------------- Multi - term ----------------------
+;; ;; -------------------------------- Multi - term ----------------------
 
-(require 'multi-term)
+;; (require 'multi-term)
 
-(setq multi-term-program "/bin/zsh")
+;; (setq multi-term-program "/bin/zsh")
 
 
 ;;-------------------------   ECLIM ------------------------------------
@@ -115,16 +118,16 @@
 (setq eclim-auto-save nil) ;;Evitar que guarde tras cualquier entrada
 
 (global-eclim-mode)
-;;------------------- Org-mode -----------------------------------------
+;; ;;------------------- Org-mode -----------------------------------------
 
-(setq org-log-done 'time) ;;Marcar fecha de tarea completada
+;; (setq org-log-done 'time) ;;Marcar fecha de tarea completada
 
-(setq org-agenda-files (list "~/org/General.org"
-                             "~/org/ACM/ACM.org"
-			     "~/org/Katas/Katas.org"
-                             "~/org/UPM/UPM.org")) ; Global TODO list
+;; (setq org-agenda-files (list "~/org/General.org"
+;;                              "~/org/ACM/ACM.org"
+;; 			     "~/org/Katas/Katas.org"
+;;                              "~/org/UPM/UPM.org")) ; Global TODO list
 
-(setq org-agenda-include-diary t)
+;; (setq org-agenda-include-diary t)
 
 ;;------------------ Minted -- colourful code exports -----------------
 
@@ -154,49 +157,49 @@
 ;;    (python . t)
 ;;    )) ; this line activates dot
 
-;; ----------------- Auto indentado -----------------------------------
+;; ;; ----------------- Auto indentado -----------------------------------
 
-;; Indent Fucking Whole Buffer
-(defun iwb ()
-  "Indent whole buffer"
-  (interactive)
-  (delete-trailing-whitespace)
-  (indent-region (point-min) (point-max) nil)
-  (untabify (point-min) (point-max))
-  (message "Indent buffer: Done.")
-  )
+;; ;; Indent Fucking Whole Buffer
+;; (defun iwb ()
+;;   "Indent whole buffer"
+;;   (interactive)
+;;   (delete-trailing-whitespace)
+;;   (indent-region (point-min) (point-max) nil)
+;;   (untabify (point-min) (point-max))
+;;   (message "Indent buffer: Done.")
+;;   )
 
-(global-set-key "\M-i" 'iwb)
+;; (global-set-key "\M-i" 'iwb)
 
 
 ;;---------------- Ox - Reveal ----------------------------------------
 
 (require 'ox-reveal)
 
-;;--------------------Auto Complete -----------------------------------
-(require 'auto-complete)
-(global-auto-complete-mode t)
+;; ;;--------------------Auto Complete -----------------------------------
+;; (require 'auto-complete)
+;; (global-auto-complete-mode t)
 
-(add-hook 'term-mode-hook (lambda()
-        (setq yas-dont-activate t)))
+;; (add-hook 'term-mode-hook (lambda()
+;;         (setq yas-dont-activate t)))
 
-(require 'org-ac)
-(org-ac/config-default)
+;; (require 'org-ac)
+;; (org-ac/config-default)
 
-;;------------------ YASnippets ---------------------------------------
+;; ;;------------------ YASnippets ---------------------------------------
 
-(require 'yasnippet)
-(yas/initialize)
+;; (require 'yasnippet)
+;; (yas/initialize)
 
-(add-to-list 'yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets/")
+;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/plugins/yasnippet/snippets/")
 
-(yas-reload-all)
-(add-hook 'java-mode-hook #'yas-minor-mode)
+;; (yas-reload-all)
+;; (add-hook 'java-mode-hook #'yas-minor-mode)
 
-;; ---------------------  MAGIT --------------------------------------
+;; ;; ---------------------  MAGIT --------------------------------------
 
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+;; (global-set-key (kbd "C-x g") 'magit-status)
+;; (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
 
 
@@ -208,14 +211,14 @@
 ;; ;; http://ergoemacs.org/emacs/xmsi-math-symbols-input.htmla
 
 
-;; ------------------------- Haskell --------------------------------
+;; ;; ------------------------- Haskell --------------------------------
 
 
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;; (add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
+;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;; ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
-(require 'inf-haskell)
+;; (require 'inf-haskell)
 
 
 ;;----------------- Java auto complete mode --------------------------
@@ -232,11 +235,11 @@
 ;;-----  Global KeyBindings
 ;;----------------------------------------------------------------------
 
-;;---------- Wind move
-(global-set-key (kbd "C-c <left>")  'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <up>")    'windmove-up)
-(global-set-key (kbd "C-c <down>")   'windmove-down)
+;; ;;---------- Wind move
+;; (global-set-key (kbd "C-c <left>")  'windmove-left)
+;; (global-set-key (kbd "C-c <right>") 'windmove-right)
+;; (global-set-key (kbd "C-c <up>")    'windmove-up)
+;; (global-set-key (kbd "C-c <down>")   'windmove-down)
 
 ;; (global-set-key "\C-cl" 'org-store-link)
 ;; (global-set-key "\C-ca" 'org-agenda)
@@ -282,24 +285,24 @@
  ;; If there is more than one, they won't work right.
  )
 
-(defun diary-schedule (m1 d1 y1 m2 d2 y2 dayname)
-      "Entry applies if date is between dates on DAYNAME.  
-    Order of the parameters is M1, D1, Y1, M2, D2, Y2 if
-    `european-calendar-style' is nil, and D1, M1, Y1, D2, M2, Y2 if
-    `european-calendar-style' is t. Entry does not apply on a history."
-      (let ((date1 (calendar-absolute-from-gregorian
-                    (if european-calendar-style
-                        (list d1 m1 y1)
-                      (list m1 d1 y1))))
-            (date2 (calendar-absolute-from-gregorian
-                    (if european-calendar-style
-                        (list d2 m2 y2)
-                      (list m2 d2 y2))))
-            (d (calendar-absolute-from-gregorian date)))
-        (if (and 
-             (<= date1 d) 
-             (<= d date2)
-             (= (calendar-day-of-week date) dayname)
-             (not (check-calendar-holidays date))
-             )
-             entry)))
+;; (defun diary-schedule (m1 d1 y1 m2 d2 y2 dayname)
+;;       "Entry applies if date is between dates on DAYNAME.  
+;;     Order of the parameters is M1, D1, Y1, M2, D2, Y2 if
+;;     `european-calendar-style' is nil, and D1, M1, Y1, D2, M2, Y2 if
+;;     `european-calendar-style' is t. Entry does not apply on a history."
+;;       (let ((date1 (calendar-absolute-from-gregorian
+;;                     (if european-calendar-style
+;;                         (list d1 m1 y1)
+;;                       (list m1 d1 y1))))
+;;             (date2 (calendar-absolute-from-gregorian
+;;                     (if european-calendar-style
+;;                         (list d2 m2 y2)
+;;                       (list m2 d2 y2))))
+;;             (d (calendar-absolute-from-gregorian date)))
+;;         (if (and 
+;;              (<= date1 d) 
+;;              (<= d date2)
+;;              (= (calendar-day-of-week date) dayname)
+;;              (not (check-calendar-holidays date))
+;;              )
+;;              entry)))
