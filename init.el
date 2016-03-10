@@ -19,6 +19,7 @@
 (require 'plugins)
 (require 'lang-modes)
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -31,7 +32,7 @@
     ("b5956c7bc8853dbb807040101d610bea5a0ce82d26235efa18d2e6a703231343" "badc4f9ae3ee82a5ca711f3fd48c3f49ebe20e6303bba1912d4e2d19dd60ec98" "6cd8802e31b8d5c169a8043f953d34b9972ee69241678a46970140c644960c7b" default)))
  '(org-agenda-files
    (quote
-    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org" "~/org/Tareas.org" "~/org/personal/")))
+    ("~/org/General.org" "~/org/ACM/ACM.org" "~/org/Katas/Katas.org" "~/org/UPM/UPM.org" "~/org/Tareas.org" "~/org/personal/calendar/ibg.org")))
  '(org-capture-templates
    (quote
     (("d" "Link a los apuntes. Incluyendo fecha." item

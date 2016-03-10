@@ -10,6 +10,8 @@ tramp
 .\#*
 *.dat
 
+tokens.el
+
 /elpa/
 
 # Org-mode
@@ -40,3 +42,5 @@ flycheck_*.el
 
 # server auth directory
 /server/
+*elpa/*
+*archive-contents*

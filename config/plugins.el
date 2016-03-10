@@ -4,5 +4,7 @@
 (require 'git)      ; Magit 
 (require 'ac)       ; Auto complete
 (require 'terminal) ; Multi-term
+(require 'calendar-settings) ; Google calendar sync
+
 
 (provide 'plugins)
