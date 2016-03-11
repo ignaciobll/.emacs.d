@@ -29,6 +29,8 @@
    + magit
    + auto-complete
    + multi-term
+   + calendar
+     - org-gcal
 6) lang-modes
    + haskell-mode
    + emmet-mode (web)
