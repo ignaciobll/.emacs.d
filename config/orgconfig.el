@@ -14,7 +14,7 @@
 (require 'notes)
 (require 'export)
 (require 'babel)
-
+(require 'rock-org)
 ;;--------- xah Math input ----------
 
 ;;(require 'xah-math-input)

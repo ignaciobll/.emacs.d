@@ -2,6 +2,7 @@
 
 (require 'lang-haskell)
 (require 'lang-web)
+(require 'lang-scala)
 ;(require 'lang-java)
  
 (provide 'lang-modes)

@@ -15,6 +15,10 @@
 
 ;;---------------- Ox - Reveal ----------------------------------------
 
-(require 'ox-reveal)
+(use-package ox-reveal
+  :ensure t
+  :config
+  (setq org-reveal-root "file:///home/ignaciobll/reveal.js")
+  )
 
 (provide 'export)

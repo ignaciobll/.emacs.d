@@ -5,6 +5,8 @@
 (require 'ac)       ; Auto complete
 (require 'terminal) ; Multi-term
 (require 'calendar-settings) ; Google calendar sync
-
+(require 'multiple-cursors-config)
+(require 'ace-jump-mode-config)
+;(require 'recorder) ;Camcorder
 
 (provide 'plugins)

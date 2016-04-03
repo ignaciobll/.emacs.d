@@ -44,3 +44,5 @@ flycheck_*.el
 /server/
 *elpa/*
 *archive-contents*
+/.mc-lists.el
+elpa/*
