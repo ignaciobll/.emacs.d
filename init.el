@@ -13,11 +13,46 @@
 ;;------------------------ Org mode -------------------------------------------
 
 (require 'theme)
+(require 'helmsettings)
 (require 'orgconfig)
 (require 'manage)
-(require 'helmsettings)
 (require 'plugins)
 (require 'lang-modes)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 (custom-set-variables

@@ -31,6 +31,8 @@
    + multi-term
    + calendar
      - org-gcal
+   + multiple-cursors
+   + ace-jump-mode
 6) lang-modes
    + haskell-mode
    + emmet-mode (web)
