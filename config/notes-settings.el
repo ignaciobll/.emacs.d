@@ -91,4 +91,8 @@
 (use-package xah-math-input
   :ensure t)
 
+(use-package toc-org
+  :ensure t
+  :init (add-to-list 'org-tag-alist '("TOC" . ?T)))
+
 (provide 'notes-settings)

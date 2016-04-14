@@ -1,3 +1,53 @@
+* Contents 								:TOC:
+ - [[#init][Init]]
+ - [[#basic-config][Basic Config]]
+   - [[#melpa][Melpa]]
+   - [[#use-package][Use-package]]
+ - [[#interface][Interface]]
+   - [[#session-][Session ]]
+   - [[#emacs-bars][Emacs bars]]
+   - [[#theme][Theme]]
+   - [[#helm-][Helm ]]
+ - [[#navigation][Navigation]]
+   - [[#avy][Avy]]
+   - [[#windmove][WindMove]]
+ - [[#programming][Programming]]
+   - [[#yasnippets-][YASnippets ]]
+   - [[#auto-yasnippet][auto-yasnippet]]
+   - [[#smartparens][SmartParens]]
+   - [[#aggresive-indent][Aggresive-indent]]
+   - [[#auto-complete][Auto-complete]]
+   - [[#company-mode][Company-mode]]
+   - [[#fly-check][Fly-check]]
+ - [[#programming-language][Programming Language]]
+   - [[#haskell][Haskell]]
+   - [[#scala][Scala]]
+ - [[#visual][Visual]]
+   - [[#rainbow-delimiters][Rainbow Delimiters]]
+   - [[#rainbow-mode][Rainbow Mode]]
+ - [[#editing][Editing]]
+   - [[#multiple-cursors][Multiple cursors]]
+ - [[#notes][Notes]]
+   - [[#org][Org]]
+   - [[#agenda][Agenda]]
+   - [[#org-babel][Org Babel]]
+   - [[#minted][Minted]]
+   - [[#ox---reveal][Ox - Reveal]]
+   - [[#org---journal][Org - journal]]
+   - [[#auto-fill][Auto-fill]]
+   - [[#org-tree-slide][Org tree slide]]
+   - [[#xah-math-input][xah-math-input]]
+   - [[#toc-org][toc-org]]
+ - [[#version-control][Version Control]]
+   - [[#magit-][Magit ]]
+ - [[#console][Console]]
+   - [[#multi-term][Multi-term]]
+ - [[#google][Google]]
+   - [[#google-translate][Google Translate]]
+   - [[#calendar][Calendar]]
+ - [[#latex][Latex]]
+   - [[#auctex][AUCTex]]
+
 * Init
 :PROPERTIES:
 :tangle:   ~/.emacs.d/init.el
@@ -612,6 +662,21 @@ https://github.com/Fanael/rainbow-delimiters
 
 #+END_SRC
 
+** toc-org
+
+Toc-org add a :toc: headline at the top of the org document. 
+
+https://github.com/snosov1/toc-org
+
+Shortcut to a =:Toc:= tag:  =C-c C-q T RET=
+
+#+BEGIN_SRC elisp
+
+  (use-package toc-org
+    :ensure t
+    :init (add-to-list 'org-tag-alist '("TOC" . ?T)))
+
+#+END_SRC
 ** 
 
 #+BEGIN_SRC elisp
