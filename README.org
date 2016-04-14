@@ -1,38 +1,728 @@
-* Emacs Configuration
+* Init
+:PROPERTIES:
+:tangle:   ~/.emacs.d/init.el
+:END:
 
-** init.el
-1) theme
-   + gruvbox theme
-   + menu bar, tool bar, scroll bar
-   + rainbow delimiters
-2) orgconfig
-   + journal
-     - org-journal
-   + agenda
-     - diary-schedule (fun)
-   + notes
-   + export
-     - Minted
-     - Reveal
-   + babel
-     - org-babel
-   + xah-math-input
-3) manage
-   + wind-move
-   + auto-fill
-   + auto-indent
-4) helmsettings
-   + helm-config
-   + helm
-5) plugins
-   + yasnippet
-   + magit
-   + auto-complete
-   + multi-term
-   + calendar
-     - org-gcal
-   + multiple-cursors
-   + ace-jump-mode
-6) lang-modes
-   + haskell-mode
-   + emmet-mode (web)
+#+BEGIN_SRC elisp
+
+  (add-to-list 'load-path "~/.emacs.d/config/")
+
+  (require 'package-management-settings)
+
+  (require 'interface-settings)
+
+  (require 'navigation-settings)
+
+  (require 'visual-settings)
+
+  (require 'programming-settings)
+
+  (require 'editing-settings)
+
+  (require 'notes-settings)
+
+  (require 'version-control-settings)
+
+  (require 'console-settings)
+
+  (require 'google-settings)
+
+  (require 'latex-settings)
+
+#+END_SRC
+
+* Basic Config
+:PROPERTIES:
+:tangle: ~/.emacs.d/config/package-management-settings.el
+:END:
+** Melpa
+
+Milkypostman’s Emacs Lisp Package Archive - https://melpa.org/#/
+This is from where you will download most emacs packages. Just checks
+if your emacs version is new enough to use melpa and install/initialize in that case.
+
+#+BEGIN_SRC elisp :mkdirp yes
+
+  (when (>= emacs-major-version 24)
+    (require 'package)
+    (add-to-list
+     'package-archives
+     '("melpa" . "http://melpa.org/packages/")
+     t)
+    (package-initialize))
+
+#+END_SRC
+
+<2016-04-12 mar 01:00> First change to my new emacs settings.
+
+** Use-package
+We will use ~use-package~ to manage our emacs-packages
+configuration. 
+
+https://github.com/jwiegley/use-package
+
+#+BEGIN_SRC elisp :mkdirp yes
+
+  (when (not (package-installed-p 'use-package))
+    (package-install use-package))
+
+#+END_SRC
+
+<2016-04-12 mar 10:31> Use package auto-install.
+
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'package-management-settings)
+
+#+END_SRC
+
+* Interface
+:PROPERTIES:
+:tangle:   ~/.emacs.d/config/interface-settings.el
+:END:
+
+** Session 
+
+I like to open Emacs and have all like when I closed it. With this
+commnad, all opened buffers, window distribution and all session settings will
+remain after closing Emacs.
+
+#+BEGIN_SRC elisp
+
+  (desktop-save-mode 1)
+
+#+END_SRC
+
+<2016-04-12 mar 10:54> Desktop save mode.
+
+** Emacs bars
+
+For a cleaner view of Emacs, I will disable the menu bar and tool bar
+on the top. Also, I will not use the scrollbar on the right of a
+buffer.
+
+UPDATE: I will try emacs with menu-bar turned on.
+
+#+BEGIN_SRC elisp
+
+(when window-system
+  (tooltip-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1))
+
+#+END_SRC
+
+<2016-04-12 mar 10:50>
+
+** Theme
+
+I use this page to choose my emacs theme.
+
+https://emacsthemes.com/
+
+#+BEGIN_SRC elisp
+
+  (load-theme 'gruvbox t)
+
+#+END_SRC
+<2016-04-12 mar 11:11>
+
+** Helm 
+#+BEGIN_SRC elisp
+
+  (use-package helm
+    :ensure t
+    :bind (("M-x" . helm-M-x)
+           ("C-x b" . helm-buffers-list)
+           ("C-x C-f" . helm-find-files))
+    :init (setq helm-split-window-in-side-p t)
+    :config (helm-autoresize-mode 1)
+    )
+#+END_SRC
+
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'interface-settings)
+
+#+END_SRC
+
+* Navigation
+:PROPERTIES:
+:tangle:   ~/.emacs.d/config/navigation-settings.el
+:END:
+
+** Avy
+
+[[https://github.com/abo-abo/avy][Avy]] - Jump to visible text using a char-based decision tree.
+
+#+BEGIN_SRC elisp
+
+  (use-package avy
+    :ensure t
+    :bind (("C-:" . avy-goto-char)
+           ("C-." . avy-goto-char2)
+           ("M-g g" . avy-goto-line)
+           ("M-g w" . avy-goto-word-1)))
+
+#+END_SRC
+
+** WindMove
+
+[[http://www.emacswiki.org/emacs/WindMove][windmove]] - =[built-in]= Tired with =C-x o=? Now you can use =shift+arrows= to jump between windows.
+
+#+BEGIN_SRC elisp
+
+  (use-package windmove
+    :bind (("C-c <up>" . windmove-up)
+           ("C-c <left>" . windmove-left)
+           ("C-c <right>" . windmove-right)
+           ("C-c <down>" . windmove-down))
+    )
+
+#+END_SRC
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'navigation-settings)
+
+#+END_SRC
+
+* Programming
+:PROPERTIES:
+:tangle:   ~/.emacs.d/config/programming-settings.el
+:END:
+** YASnippets 
+
+To use all snippets, you will run to install this before.
+
+#+BEGIN_SRC sh :tangle no
+
+$ cd ~/.emacs.d/plugins
+$ git clone --recursive https://github.com/capitaomorte/yasnippet
+
+#+END_SRC
+
+And this code is for emacs config.
+
+#+BEGIN_SRC elisp
+
+  (use-package yasnippet
+    :ensure t
+    :init (yas-global-mode 1)
+    :config
+    (define-key yas-minor-mode-map (kbd "<tab>") nil)
+    (define-key yas-minor-mode-map (kbd "TAB") nil)
+    (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
+    )
+
+#+END_SRC
+
+** auto-yasnippet
+
+Auto-yasnippet let us create local snippets. For example, if we want
+to create this:
+
+#+BEGIN_SRC java :tangle no
+
+  count_of_red = get_total("red");
+  count_of_blue = get_total("blue");
+  count_of_green = get_total("green");
+
+#+END_SRC
+
+In order to create this, we have to make a code like this:
+
+#+BEGIN_SRC java :tangle no
+
+  count_of_~red = get_total("~red");
+
+#+END_SRC
+
+A "~" is representing a variable. To create a auto-snippet, que
+execute command aya-create (which I binded to C-c a). This replace de
+variable with it value, and save the snipppet.
+
+#+BEGIN_SRC java :tangle no
+
+  count_of_red = get_total("red");
+
+#+END_SRC
+
+If we then execute aya-expand (C-c e), the snippet is pasted with the
+cursor on the places where we will write the new values.
+
+#+BEGIN_SRC java :tangle no
+
+  count_of_red = get_total("red");
+  count_of_ = get_total("");
+
+#+END_SRC
+
+#+BEGIN_SRC elisp
+
+  (use-package auto-yasnippet
+    :ensure t
+    :bind (("C-c a" . aya-create)
+           ("C-c e" . aya-expand)
+           ("C-o" . aya-open-line)))
+
+#+END_SRC
+
+** SmartParens
+
+[[https://github.com/Fuco1/smartparens][SmartParens]] - Deals with parens pairs and tries to be smart about it.
+
+#+BEGIN_SRC elisp
+
+  (use-package smartparens
+    :ensure t
+    :init (smartparens-global-mode 1))
+#+END_SRC
+
+** Aggresive-indent
+
+[[https://github.com/Malabarba/aggressive-indent-mode][Aggressive-indent]] - Keeps your code always indented automatically.
+
+#+BEGIN_SRC elisp
+
+  (use-package aggresive-indent
+    :init
+    (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+    (add-hook 'css-mode-hook #'aggressive-indent-mode)
+    )
+
+#+END_SRC
+** Auto-complete
+   
+ [[https://github.com/Fuco1/smartparens][SmartParens]] - Deals with parens pairs and tries to be smart about it.
+
+#+BEGIN_SRC elisp
+
+  (use-package auto-complete
+    :ensure t
+    :config (ac-config-default))
+
+#+END_SRC
+** Company-mode
+
+ [[https://company-mode.github.io/][Company]] - A text completion framework.
+
+#+BEGIN_SRC elisp
+
+  (use-package company-mode
+    :init
+    (add-hook 'after-init-hook 'global-company-mode))
+
+#+END_SRC
+
+I will add company-quickhelp. You can use it with M-h and show
+documentation next to company options.
+
+#+BEGIN_SRC elisp
+
+  (use-package company-quickhelp
+    :ensure t
+    :init (company-quickhelp-mode 1)
+    :config (eval-after-load 'company
+              '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)))
+
+#+END_SRC
+** Fly-check
+
+ [[https://github.com/flycheck/flycheck][Flycheck]] - Modern on-the-fly syntax checking meant to be a
+ replacement to =FlyMake=
+
+#+BEGIN_SRC elisp
+
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+
+#+END_SRC
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'programming-settings)
+
+#+END_SRC
+* Programming Language
+:PROPERTIES:
+:tangle:   ~/.emacs.d/config/programming-language-settings.el
+:END:
+
+** Haskell
+
+ [[https://github.com/haskell/haskell-mode][haskell-mode]] - Major mode for Haskell.
+
+#+BEGIN_SRC elisp
+
+  (use-package haskell-mode
+    :ensure t
+    :mode "\\.hs'\\"
+    :config (add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+    )
+
+#+END_SRC
+
+** Scala
+ [[https://github.com/hvesalai/scala-mode2][scala-mode2]] - scala major mode for emacs 24. Based on the Scala
+ Language Specification 2.9
+
+#+BEGIN_SRC elisp
+
+  (use-package scala-mode2
+    :interpreter
+    ("scala" . scala-mode))
+
+#+END_SRC
+
+ [[http://ensime.github.io/][Ensime]] - ENhanced Scala Interaction Mode for Emacs
+
+#+BEGIN_SRC elisp
+
+  (use-package ensime
+    :commands ensime ensime-mode
+    :init  (add-hook 'scala-mode-hook 'ensime-mode))
+
+
+#+END_SRC
+   
+** 
+#+BEGIN_SRC elisp
+
+(provide 'programming-languages-settings)
+
+#+END_SRC
+* Visual
+:PROPERTIES:
+:tangle:   ~/.emacs.d/config/visual-settings.el
+:END:
+
+** Rainbow Delimiters
+
+https://github.com/Fanael/rainbow-delimiters
+
+#+BEGIN_SRC elisp
+  (use-package rainbow-delimiters
+    :ensure t
+    :init
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+    )
+#+END_SRC
+<2016-04-12 mar 11:13>
+
+** Rainbow Mode
+
+[[https://julien.danjou.info/projects/emacs-packages][Rainbow-mode]] - Display color on color-code string (hex/rgb) directly.
+
+#+BEGIN_SRC elisp
+
+  (use-package rainbow-mode
+    :ensure t
+    :mode "\\.css\\'"
+    )
+
+#+END_SRC
+
+<2016-04-13 mié 00:42>
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'visual-settings)
+
+#+END_SRC
+* Editing
+:PROPERTIES:
+:tangle:   ~/.emacs.d/config/editing-settings.el
+:END:
+
+** Multiple cursors
+
+ [[https://github.com/magnars/multiple-cursors.el][Multiple cursors]] - Mark, edit multiple lines at once.
+
+#+BEGIN_SRC elisp
+
+  (use-package multiple-cursors
+    :ensure t
+    :bind (("C-S-c C-S-c" . mc/edit-lines)
+           ("C->" . mc/mark-next-like-this)
+           ("C-<" . mc/mark-previous-like-this)
+           ("C-c C-<" . mc/add-cursor-on-click))
+    )
+
+#+END_SRC
+
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'editing-settings)
+
+#+END_SRC
+
+* Notes
+:PROPERTIES:
+:tangle:   ~/.emacs.d/config/notes-settings.el
+:END:
+** Org
+
+ #+BEGIN_SRC elisp
+
+   (use-package org-mode
+     :mode "\\.org'\\"
+     :bind (("\C-cl" . org-store-link)
+            ("\C-ca" . org-agenda)
+            ("\C-cc" . org-capture)
+            ("\C-cb" . org-iswitchb))
+     :config (setq org-src-fontify-natively t)
+     (setq org-default-notes-file "~/org/organizer.org")
+     (setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
+
+     )
+
+ #+END_SRC
+** Agenda
+
+#+BEGIN_SRC elisp
+
+  (setq org-log-done 'time) ;;Marcar fecha de tarea completada
+
+  (setq org-agenda-files (list "~/org/General.org"
+                               "~/org/ACM/ACM.org"
+                               "~/org/Katas/Katas.org"
+                               "~/org/UPM/UPM.org")) ; Global TODO list
+
+  (setq org-agenda-include-diary t)
+
+  ; FUNCTIONS
+  (defun diary-schedule (m1 d1 y1 m2 d2 y2 dayname)
+    "Entry applies if date is between dates on DAYNAME.  
+      Order of the parameters is M1, D1, Y1, M2, D2, Y2 if
+      `european-calendar-style' is nil, and D1, M1, Y1, D2, M2, Y2 if
+      `european-calendar-style' is t. Entry does not apply on a history."
+    (let ((date1 (calendar-absolute-from-gregorian
+                  (if european-calendar-style
+                      (list d1 m1 y1)
+                    (list m1 d1 y1))))
+          (date2 (calendar-absolute-from-gregorian
+                  (if european-calendar-style
+                      (list d2 m2 y2)
+                    (list m2 d2 y2))))
+          (d (calendar-absolute-from-gregorian date)))
+      (if (and 
+           (<= date1 d) 
+           (<= d date2)
+           (= (calendar-day-of-week date) dayname)
+           (not (check-calendar-holidays date))
+           )
+          entry)))
+
+#+END_SRC
+** Org Babel
+
+#+BEGIN_SRC elisp
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((dot . t)
+     (latex . t)
+     (java . t)
+     (sh . t)
+     (python . t)
+     ))
+
+#+END_SRC
+** Minted
+
+#+BEGIN_SRC elisp
+
+  (use-package ox-latex
+    :init (add-to-list 'org-latex-packages-alist '("" "minted"))
+    (setq org-latex-listings 'minted)
+    (setq org-latex-pdf-process
+          '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))    
+    )
+
+#+END_SRC
+
+** Ox - Reveal
+
+#+BEGIN_SRC elisp
+
+  (use-package ox-reveal
+    :ensure t
+    :config
+    (setq org-reveal-root "file:///home/ignaciobll/reveal.js")
+    )
+
+#+END_SRC
+** Org - journal
+
+#+BEGIN_SRC elisp
+
+  (use-package org-journal
+    :ensure t
+    :init (setq org-journal-dir "~/org/personal/journal/"))
+
+#+END_SRC
+** Auto-fill
+
+#+BEGIN_SRC elisp 
+
+  (use-package auto-fill-mode
+    :bind ("C-c q" . turn-on-auto-fill-mode)
+    :init (add-hook 'org-mode-hook 'turn-on-auto-fill)
+    :config (add-hook 'org-mode-hook 'xah-math-input-mode))
+
+#+END_SRC
+** Org tree slide
+#+BEGIN_SRC elisp
+
+(use-package org-tree-slide
+  :ensure t
+  :config
+  (define-key org-tree-slide-mode-map (kbd "<f9>")
+    'org-tree-slide-move-previous-tree)
+  (define-key org-tree-slide-mode-map (kbd "<f10>")
+    'org-tree-slide-move-next-tree)
+  (define-key org-tree-slide-mode-map (kbd "<f11>")
+    'org-tree-slide-content)
+  (org-tree-slide-narrowing-control-profile)
+  (setq org-tree-slide-skip-outline-level 4)
+  (setq org-tree-slide-skip-done nil)
+  :bind (("<f8>" . org-tree-slide-mode)
+         ("S-<f8>" . org-tree-slide-skip-done)))
+
+#+END_SRC
+** xah-math-input
+
+#+BEGIN_SRC elisp
+
+  (use-package xah-math-input
+    :ensure t)
+
+#+END_SRC
+
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'notes-settings)
+
+#+END_SRC
+* Version Control
+:PROPERTIES:
+:tangle:   ~/.emacs.d/config/version-control-settings.el
+:END:
+
+** Magit 
+
+#+BEGIN_SRC elisp
+
+  (use-package magit
+    :ensure t
+    :bind (("C-x g" . magit-status)
+           ("C-x M-g" . magit-dispatch-popup))
+    )
+
+#+END_SRC
+
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'version-control-settings)
+
+#+END_SRC
+
+* Console
+:PROPERTIES:
+:tangle: ~/.emacs.d/config/console-settings.el
+:END:
+
+** Multi-term
+
+#+BEGIN_SRC elisp
+
+  (use-package multi-term
+    :ensure t
+    :config (setq multi-term-program "/bin/zsh"))
+
+#+END_SRC
+
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'console-settings)
+
+#+END_SRC
+* Google
+:PROPERTIES:
+:tangle: ~/.emacs.d/config/google-settings.el
+:END:
+
+** Google Translate
+
+#+BEGIN_SRC elisp
+
+  (use-package google-translate
+    :ensure t
+    :bind ("C-c t" . google-translate-smooth-translate)
+    :init (require 'google-translate-smooth-ui))
+
+#+END_SRC
+
+** Calendar
+
+#+BEGIN_SRC elisp
+
+  (use-package request
+    :ensure t)
+
+  (use-package alert
+    :ensure t)
+
+  (when (file-readable-p "~/.emacs.d/tokens.el")
+        (load "~/.emacs.d/tokens.el"))
+  (when (and (boundp 'gcal-client-id) (boundp 'gcal-client-secret) (boundp 'gcal-email))
+    (use-package org-gcal
+      :ensure t
+      :config
+      (setq org-gcal-client-id gcal-client-id
+            org-gcal-client-secret gcal-client-secret
+            org-gcal-file-alist `((,gcal-email .  "~/org/personal/calendar/ibg.org")))))
+
+#+END_SRC
+** 
+
+#+BEGIN_SRC elisp
+
+  (provide 'google-settings)
+
+#+END_SRC
+* Latex
+:PROPERTIES:
+:tangle: ~/.emacs.d/config/latex-settings.el
+:END:
+
+** AUCTex
+#+BEGIN_SRC elisp
+
+#+END_SRC
+
+** 
+#+BEGIN_SRC elisp
+
+  (provide 'latex-settings)
+
+#+END_SRC

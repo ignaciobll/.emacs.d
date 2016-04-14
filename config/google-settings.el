@@ -1,3 +1,8 @@
+(use-package google-translate
+  :ensure t
+  :bind ("C-c t" . google-translate-smooth-translate)
+  :init (require 'google-translate-smooth-ui))
+
 (use-package request
   :ensure t)
 
@@ -13,5 +18,5 @@
     (setq org-gcal-client-id gcal-client-id
           org-gcal-client-secret gcal-client-secret
           org-gcal-file-alist `((,gcal-email .  "~/org/personal/calendar/ibg.org")))))
-(provide 'calendar-settings)
-  
+
+(provide 'google-settings)
