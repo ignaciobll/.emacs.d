@@ -1,5 +1,5 @@
 (use-package org-mode
-  :mode "\\.org'\\"
+  :mode ("\\.org\\'" . org-mode)
   :bind (("\C-cl" . org-store-link)
          ("\C-ca" . org-agenda)
          ("\C-cc" . org-capture)
