@@ -61,3 +61,4 @@ elpa/*
 /config2/visual-settings.el
 /emacs-config.pdf
 /emacs-config.tex
+/org-gcal/.org-gcal-token
