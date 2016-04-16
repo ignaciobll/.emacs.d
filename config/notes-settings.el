@@ -51,6 +51,9 @@
    (python . t)
    ))
 
+(use-package ob-translate
+  :ensure t)
+
 (use-package ox-latex
   :init (add-to-list 'org-latex-packages-alist '("" "minted"))
   (setq org-latex-listings 'minted)

@@ -31,6 +31,7 @@
    - [[#org][Org]]
    - [[#agenda][Agenda]]
    - [[#org-babel][Org Babel]]
+   - [[#ob-translate][Ob-translate]]
    - [[#minted][Minted]]
    - [[#ox---reveal][Ox - Reveal]]
    - [[#org---journal][Org - journal]]
@@ -591,6 +592,29 @@ https://github.com/Fanael/rainbow-delimiters
      ))
 
 #+END_SRC
+** Ob-translate
+
+https://github.com/krisajenkins/ob-translate
+
+This is a complement to org-babel. Ob-translate requires
+[[#google-translate][Google Translate]] to works.
+
+Use:
+
+| Argument | Description              | Example                             | Default                      |
+|----------+--------------------------+-------------------------------------+------------------------------|
+| =:src=   | Source language.         | =#+BEGIN_SRC translate :src de=     | 'auto' (for auto detection). |
+| =:dest=  | Destination language(s). | =#+BEGIN_SRC translate :dest it,fr= | 'en' (for English).          |
+
+=:dest= may be a single country-code, or a comma-separated list.
+
+#+BEGIN_SRC elisp
+
+  (use-package ob-translate
+    :ensure t)
+
+#+END_SRC
+
 ** Minted
 
 #+BEGIN_SRC elisp
@@ -746,7 +770,6 @@ Shortcut to a =:Toc:= tag:  =C-c C-q T RET=
     :init (require 'google-translate-smooth-ui))
 
 #+END_SRC
-
 ** Calendar
 
 #+BEGIN_SRC elisp
