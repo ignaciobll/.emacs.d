@@ -9,8 +9,8 @@
 
 (use-package auto-yasnippet
   :ensure t
-  :bind (("C-c a" . aya-create)
-         ("C-c e" . aya-expand)
+  :bind (("C-x a" . aya-create)
+         ("C-x e" . aya-expand)
          ("C-o" . aya-open-line)))
 
 (use-package smartparens

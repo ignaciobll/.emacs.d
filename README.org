@@ -296,7 +296,7 @@ In order to create this, we have to make a code like this:
 #+END_SRC
 
 A "~" is representing a variable. To create a auto-snippet, que
-execute command aya-create (which I binded to C-c a). This replace de
+execute command aya-create (which I binded to C-x a). This replace de
 variable with it value, and save the snipppet.
 
 #+BEGIN_SRC java :tangle no
@@ -305,7 +305,7 @@ variable with it value, and save the snipppet.
 
 #+END_SRC
 
-If we then execute aya-expand (C-c e), the snippet is pasted with the
+If we then execute aya-expand (C-x e), the snippet is pasted with the
 cursor on the places where we will write the new values.
 
 #+BEGIN_SRC java :tangle no
@@ -319,8 +319,8 @@ cursor on the places where we will write the new values.
 
   (use-package auto-yasnippet
     :ensure t
-    :bind (("C-c a" . aya-create)
-           ("C-c e" . aya-expand)
+    :bind (("C-x a" . aya-create)
+           ("C-x e" . aya-expand)
            ("C-o" . aya-open-line)))
 
 #+END_SRC
@@ -630,6 +630,17 @@ Use:
 
 ** Ox - Reveal
 
+https://github.com/yjwen/org-reveal
+
+Whe need some things to install in order to make this work properly,
+bur it's not needed if you are not going to use org-reveal.
+
+First, whe have to install reveal.js from [[https://github.com/hakimel/reveal.js/][here]] and do the [[https://github.com/hakimel/reveal.js/#installation][full setup]],
+wich requires =Node.js= and =Grunt=.
+
+Once we have installed reveal.js, you should change de
+=org-reveal-root= variable in the next code block with your own path:
+
 #+BEGIN_SRC elisp
 
   (use-package ox-reveal
@@ -639,6 +650,7 @@ Use:
     )
 
 #+END_SRC
+
 ** Org - journal
 
 #+BEGIN_SRC elisp
