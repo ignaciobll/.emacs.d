@@ -6,6 +6,8 @@
 
 (require 'navigation-settings)
 
+(require 'project-management-settings)
+
 (require 'visual-settings)
 
 (require 'programming-settings)

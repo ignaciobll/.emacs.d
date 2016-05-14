@@ -13,4 +13,13 @@
   :commands ensime ensime-mode
   :init  (add-hook 'scala-mode-hook 'ensime-mode))
 
+(use-package erlang
+  :ensure t
+  :mode "\\.erl'\\")
+
+(use-package edts
+  :ensure t
+  :init (add-hook 'erlang-mode-hook 'edst-start)
+  )
+
 (provide 'programming-languages-settings)

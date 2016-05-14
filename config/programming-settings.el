@@ -15,7 +15,7 @@
 
 (use-package smartparens
   :ensure t
-  :init (smartparens-global-mode 1))
+  :init (smartparens-global-mode 0))
 
 (use-package aggresive-indent
   :init
