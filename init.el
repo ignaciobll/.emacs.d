@@ -1,4 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/config/")
+(add-to-list 'load-path "~/.emacs.d/plugins/")
 
 (require 'package-management-settings)
 
@@ -23,3 +24,5 @@
 (require 'google-settings)
 
 (require 'latex-settings)
+
+(require 'tegmacs-settings)

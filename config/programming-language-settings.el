@@ -22,4 +22,11 @@
   :init (add-hook 'erlang-mode-hook 'edst-start)
   )
 
+(use-package jdee
+  :ensure t
+  )
+
+(use-package elpy
+  :init (elpy-enable))
+
 (provide 'programming-languages-settings)

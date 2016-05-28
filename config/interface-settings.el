@@ -17,4 +17,13 @@
   :config (helm-autoresize-mode 1)
   )
 
+(use-package hydra
+  :ensure t
+  )
+
+(use-package emojify
+  :ensure t
+  :init (global-emojify-mode)
+  )
+
 (provide 'interface-settings)
