@@ -27,6 +27,16 @@
   )
 
 (use-package elpy
+  :ensure t
   :init (elpy-enable))
+
+(use-package matlab-mode
+  :ensure t
+  :mode ("\\.m$\\'" . matlab-mode)
+  :config
+  (setq matlab-indent-function t)
+  (setq matlab-shell-command "matlab")
+  (setq matlab-shell-command-switches (list "-nodesktop"))
+  )
 
 (provide 'programming-languages-settings)

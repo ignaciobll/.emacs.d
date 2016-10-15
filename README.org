@@ -188,7 +188,7 @@ https://emacsthemes.com/
 
 #+BEGIN_SRC elisp
 
-  (load-theme 'gruvbox t)
+  (load-theme 'darkokai t)
 
 #+END_SRC
 <2016-04-12 mar 11:11>
@@ -608,7 +608,24 @@ as well as Python.
 #+BEGIN_SRC elisp
 
   (use-package elpy
+    :ensure t
     :init (elpy-enable))
+
+#+END_SRC
+
+** Matlab
+
+We will need to add ~matlab~ to our path. With a symlink.
+#+BEGIN_SRC elisp
+
+  (use-package matlab-mode
+    :ensure t
+    :mode ("\\.m$\\'" . matlab-mode)
+    :config
+    (setq matlab-indent-function t)
+    (setq matlab-shell-command "matlab")
+    (setq matlab-shell-command-switches (list "-nodesktop"))
+    )
 
 #+END_SRC
 

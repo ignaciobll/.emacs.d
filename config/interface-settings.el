@@ -6,7 +6,7 @@
   (menu-bar-mode -1)
   (scroll-bar-mode -1))
 
-(load-theme 'gruvbox t)
+(load-theme 'darkokai t)
 
 (use-package helm
   :ensure t
