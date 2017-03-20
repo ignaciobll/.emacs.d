@@ -1,3 +1,0 @@
-
-
-(provide 'latex-settings)

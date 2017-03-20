@@ -1,254 +1,152 @@
-* Contents 								:TOC:
- - [[#init][Init]]
+* Contents                                      :TOC_3:
  - [[#basic-config][Basic Config]]
    - [[#melpa-marmalade][Melpa, marmalade]]
    - [[#use-package][Use-package]]
+   - [[#backup-files][Backup files]]
  - [[#interface][Interface]]
-   - [[#session-][Session ]]
+   - [[#sesión][Sesión]]
    - [[#emacs-bars][Emacs bars]]
-   - [[#theme][Theme]]
-   - [[#helm-][Helm ]]
-   - [[#hydra][Hydra]]
-   - [[#emojify][Emojify]]
+   - [[#tema][Tema]]
  - [[#navigation][Navigation]]
    - [[#avy][Avy]]
    - [[#windmove][WindMove]]
+   - [[#ido][ido]]
  - [[#project-management][Project Management]]
    - [[#projectile][Projectile]]
  - [[#programming][Programming]]
-   - [[#yasnippets-][YASnippets ]]
+   - [[#yasnippets][YASnippets]]
    - [[#auto-yasnippet][auto-yasnippet]]
    - [[#smartparens][SmartParens]]
    - [[#aggresive-indent][Aggresive-indent]]
    - [[#auto-complete][Auto-complete]]
    - [[#company-mode][Company-mode]]
-   - [[#fly-check][Fly-check]]
  - [[#programming-language][Programming Language]]
    - [[#haskell][Haskell]]
    - [[#scala][Scala]]
-   - [[#erlang][Erlang]]
-   - [[#java][Java]]
    - [[#python][Python]]
+   - [[#matlab][Matlab]]
+   - [[#erlang][Erlang]]
  - [[#visual][Visual]]
    - [[#rainbow-delimiters][Rainbow Delimiters]]
    - [[#rainbow-mode][Rainbow Mode]]
  - [[#editing][Editing]]
    - [[#multiple-cursors][Multiple cursors]]
  - [[#notes][Notes]]
-   - [[#org][Org]]
-   - [[#agenda][Agenda]]
    - [[#org-babel][Org Babel]]
-   - [[#ob-translate][Ob-translate]]
    - [[#minted][Minted]]
    - [[#ox---reveal][Ox - Reveal]]
-   - [[#org---journal][Org - journal]]
    - [[#auto-fill][Auto-fill]]
    - [[#org-tree-slide][Org tree slide]]
    - [[#xah-math-input][xah-math-input]]
    - [[#toc-org][toc-org]]
+   - [[#markdown][Markdown]]
+   - [[#cheatsheet][Cheatsheet]]
  - [[#version-control][Version Control]]
-   - [[#magit-][Magit ]]
+   - [[#magit][Magit]]
  - [[#console][Console]]
    - [[#multi-term][Multi-term]]
  - [[#google][Google]]
-   - [[#google-translate][Google Translate]]
-   - [[#calendar][Calendar]]
- - [[#latex][Latex]]
-   - [[#auctex][AUCTex]]
- - [[#telegram][Telegram]]
-   - [[#tegmacs][Tegmacs]]
 
-* Init
-:PROPERTIES:
-:tangle:   ~/.emacs.d/init.el
-:END:
-
-#+BEGIN_SRC elisp
-
-  (add-to-list 'load-path "~/.emacs.d/config/")
-  (add-to-list 'load-path "~/.emacs.d/plugins/")
-
-  (require 'package-management-settings)
-
-  (require 'interface-settings)
-
-  (require 'navigation-settings)
-  
-  (require 'project-management-settings)
-
-  (require 'visual-settings)
-
-  (require 'programming-settings)
-
-  (require 'editing-settings)
-
-  (require 'notes-settings)
-
-  (require 'version-control-settings)
-
-  (require 'console-settings)
-
-  (require 'google-settings)
-
-  (require 'latex-settings)
-
-  (require 'tegmacs-settings)
-
-#+END_SRC
 * Basic Config
-:PROPERTIES:
-:tangle: ~/.emacs.d/config/package-management-settings.el
-:END:
 ** Melpa, marmalade
 
 Milkypostman’s Emacs Lisp Package Archive - https://melpa.org/#/
-This is from where you will download most emacs packages. Just checks
-if your emacs version is new enough to use melpa and install/initialize in that case.
 
-#+BEGIN_SRC elisp :mkdirp yes
+De este repositorio se descargarán los paquetes que instalaremos en
+Emacs. Antes comprobamos que realmente podemos usarlo al tener una
+versión correcta de Emacs.
+
+Añadimos también ~melpa stable~ para evitar algunos conflictos con los paquetes.
+
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (when (>= emacs-major-version 24)
     (require 'package)
     (add-to-list
      'package-archives
-     '("melpa" . "http://melpa.org/packages/")
-     t)
+     '("melpa" . "http://melpa.org/packages/") t)
+    (add-to-list
+     'package-archives
+     '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
     (package-initialize))
+
 #+END_SRC
 
-<2016-04-12 mar 01:00> First change to my new emacs settings.
-
 ** Use-package
-We will use ~use-package~ to manage our emacs-packages
-configuration. 
+
+~Use-package~ es un paquete que nos permite instalar y configurar
+paquetes de Emacs de forma cómoda y más compacta.
+
+Para automatizar más la instalación, comprobamos si ya tenemos
+instalado ~use-package~, y si no lo tenemos, lo instalamos.
 
 https://github.com/jwiegley/use-package
 
-#+BEGIN_SRC elisp :mkdirp yes
+#+BEGIN_SRC elisp :tangle ./init.el :mkdirp yes
 
-  (when (not (package-installed-p 'use-package))
-    (package-install use-package))
+  (unless (featurep 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package)
+    )
 
 #+END_SRC
 
-<2016-04-12 mar 10:31> Use package auto-install.
+** Backup files
 
-** 
+Para evitar que Emacs nos llene los directorios con archivos propios
+de /backups/ determinamos que los guarde automáticamente en el
+directorio ~.emacs.d/backup/~. /*NOT WORKING*/
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
-  (provide 'package-management-settings)
+  (setq make-backup-files nil) ;; Hello GIT
+
+  ;; (setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 
 #+END_SRC
 
 * Interface
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/interface-settings.el
-:END:
+** Sesión
+Aunque por lo general use Emacs en modo ~daemon~, entre sesión y
+sesión se puede establecer que nos guarde el escritorio.
 
-** Session 
-
-I like to open Emacs and have all like when I closed it. With this
-commnad, all opened buffers, window distribution and all session settings will
-remain after closing Emacs.
-
-#+BEGIN_SRC elisp
-
-  (desktop-save-mode 1)
-
+#+BEGIN_SRC elisp :tangle ./init.el
+;(desktop-save-mode 1)
 #+END_SRC
-
-<2016-04-12 mar 10:54> Desktop save mode.
 
 ** Emacs bars
 
-For a cleaner view of Emacs, I will disable the menu bar and tool bar
-on the top. Also, I will not use the scrollbar on the right of a
-buffer.
+Para una interfaz más limpia y sin botones a la vista
+(shortcuts/macros al poder), eliminamos todas las barras y botones que
+vienen por defecto con la interfaz de Emacs.
 
-UPDATE: I will try emacs with menu-bar turned on.
+#+BEGIN_SRC elisp :tangle ./init.el
 
-#+BEGIN_SRC elisp
-
-(when window-system
   (tooltip-mode -1)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
-  (scroll-bar-mode -1))
+  (scroll-bar-mode -1)
 
 #+END_SRC
 
-<2016-04-12 mar 10:50>
+** Tema
 
-** Theme
+Me encanta /Darkokai/
 
-I use this page to choose my emacs theme.
+#+BEGIN_SRC elisp :tangle ./init.el
 
-https://emacsthemes.com/
-
-#+BEGIN_SRC elisp
-
-  (load-theme 'darkokai t)
-
-#+END_SRC
-<2016-04-12 mar 11:11>
-
-** Helm 
-#+BEGIN_SRC elisp
-
-  (use-package helm
+  (use-package darkokai-theme
     :ensure t
-    :bind (("M-x" . helm-M-x)
-           ("C-x b" . helm-buffers-list)
-           ("C-x C-f" . helm-find-files))
-    :init (setq helm-split-window-in-side-p t)
-    :config (helm-autoresize-mode 1)
-    )
-#+END_SRC
-
-** Hydra
-
-[[https://github.com/abo-abo/hydra][Hydra]] - Once you summon the Hydra through the prefixed binding (the
-body + any one head), all heads can be called in succession with only
-a short extension.
-
-#+BEGIN_SRC elisp
-  (use-package hydra
-    :ensure t
-    )
-#+END_SRC
-
-** Emojify
-
-[[https://github.com/iqbalansari/emacs-emojify][Emojify]] - Emojify is an Emacs extension to display emojis. It can
-display github style emojis like ~:smile:~ or plain ascii ones like
-~:)~.
-
-#+BEGIN_SRC elisp
-  (use-package emojify
-    :ensure t
-    :init (global-emojify-mode)
-    )
-#+END_SRC
-
-** 
-
-#+BEGIN_SRC elisp
-
-  (provide 'interface-settings)
+    :init (load-theme 'darkokai t))
 
 #+END_SRC
-
 * Navigation
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/navigation-settings.el
-:END:
-
 ** Avy
 
-[[https://github.com/abo-abo/avy][Avy]] - Jump to visible text using a char-based decision tree.
+[[https://github.com/abo-abo/avy][Avy]] - Nos permite saltar a cualquier linea, palabra o caracter
+visible.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package avy
     :ensure t
@@ -262,9 +160,10 @@ display github style emojis like ~:smile:~ or plain ascii ones like
 
 [[http://www.emacswiki.org/emacs/WindMove][windmove]] - =[built-in]= Tired with =C-x o=? Now you can use =shift+arrows= to jump between windows.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package windmove
+    :ensure t
     :bind (("C-c <up>" . windmove-up)
            ("C-c <left>" . windmove-left)
            ("C-c <right>" . windmove-right)
@@ -272,27 +171,23 @@ display github style emojis like ~:smile:~ or plain ascii ones like
     )
 
 #+END_SRC
-** 
 
-#+BEGIN_SRC elisp
+** ido
 
-  (provide 'navigation-settings)
+Ido es un modo que nos permite visualizar los datos de autocompletado
+para manejarnos entre búsquedas de ficheros o cambios de buffers.
+
+#+BEGIN_SRC elisp :tangle ./init.el
+
+  (use-package ido
+    :init (ido-mode))
 
 #+END_SRC
 
 * Project Management
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/project-management-settings.el
-:END:
 ** Projectile
 
-https://github.com/bbatsov/projectile
-
-Projectile is a project interaction library for Emacs. Its goal is to
-provide a nice set of features operating on a project level without
-introducing external dependencies (when feasible). For instance -
-finding project files has a portable implementation written in pure
-Emacs Lisp without the use of GNU ~find~ (but for performance sake an
+https://github.com/bbatsov/projeEmacs Lisp without the use of GNU ~find~ (but for performance sake an
 indexing mechanism backed by external commands exists as well).
 
 - Basis Usage
@@ -343,39 +238,29 @@ If you ever forget any of Projectile's keybindings just do a:
 ~C-c p C-h~
 
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package projectile
     :ensure t
     :init (projectile-global-mode))
 
 #+END_SRC
-
-** 
-
-#+BEGIN_SRC elisp
-
-  (provide 'project-management-settings)
-
-#+END_SRC
+   
 * Programming
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/programming-settings.el
-:END:
 ** YASnippets 
-
-To use all snippets, you will run to install this before.
+Para poder usar los snippets, necesitamos ejecutar antes estos comandos.
 
 #+BEGIN_SRC sh :tangle no
 
+$ mkdir -p ~/.emacs.d/plugins
 $ cd ~/.emacs.d/plugins
 $ git clone --recursive https://github.com/capitaomorte/yasnippet
 
 #+END_SRC
 
-And this code is for emacs config.
+Y esto es lo que necesitamos para configurarlo en Emacs.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package yasnippet
     :ensure t
@@ -388,10 +273,12 @@ And this code is for emacs config.
 
 #+END_SRC
 
+Para que no entre en conflicto con otros autocompletados, hacemos que
+los yasnippets se lancen con la combinación ~C-tab~.
+
 ** auto-yasnippet
 
-Auto-yasnippet let us create local snippets. For example, if we want
-to create this:
+Auto-yasnippet nos permite crear snippets locales. Por ejemplo:
 
 #+BEGIN_SRC java :tangle no
 
@@ -401,7 +288,7 @@ to create this:
 
 #+END_SRC
 
-In order to create this, we have to make a code like this:
+Para poder crear esto, antes tenemos que definir lo siguiente:
 
 #+BEGIN_SRC java :tangle no
 
@@ -413,14 +300,19 @@ A "~" is representing a variable. To create a auto-snippet, que
 execute command aya-create (which I binded to C-x a). This replace de
 variable with it value, and save the snipppet.
 
+/~/ representa una variable. Para crear el snippet local tenemos que
+ejecutar el comando ~aya-create~, bindeado a ~C-x a~. Este comando
+reemplaza la varible por su valor y guarda el snippet.
+
 #+BEGIN_SRC java :tangle no
 
   count_of_red = get_total("red");
 
 #+END_SRC
 
-If we then execute aya-expand (C-x e), the snippet is pasted with the
-cursor on the places where we will write the new values.
+Para volver a usar el snippet guardado necesitamos
+expandirlo. Ejecutamos el comando ~aya-expand~ asociado a ~C-x e~ y se
+nos prepara el snippet con el cursor correctamente colocado.
 
 #+BEGIN_SRC java :tangle no
 
@@ -429,32 +321,43 @@ cursor on the places where we will write the new values.
 
 #+END_SRC
 
-#+BEGIN_SRC elisp
+La configuración correspondiente:
+
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package auto-yasnippet
     :ensure t
     :bind (("C-x a" . aya-create)
            ("C-x e" . aya-expand)
            ("C-o" . aya-open-line)))
-
 #+END_SRC
-
 ** SmartParens
 
-[[https://github.com/Fuco1/smartparens][SmartParens]] - Deals with parens pairs and tries to be smart about it.
+[[https://github.com/Fuco1/smartparens][Smartparens]] - Deals with parens pairs and tries to be smart about it.
 
-#+BEGIN_SRC elisp
+ https://ebzzry.github.io/emacs-pairs.html
 
-  (use-package smartparens
-    :ensure t
-    :init (smartparens-global-mode 0))
+#+BEGIN_SRC elisp :tangle ./init.el
+  (use-package smartparens-config
+    :ensure smartparens
+    :config
+    (progn (show-smartparens-global-mode t)))
+
+  (setq sp-highlight-wrap-overlay nil)
+  (setq sp-highlight-pair-overlay nil)
+  (setq sp-highlight-wrap-overlay nil)
+
+  (add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
+  (add-hook 'markdown-mode-hook 'turn-on-smartparens-mode)
 #+END_SRC
 
 ** Aggresive-indent
 
 [[https://github.com/Malabarba/aggressive-indent-mode][Aggressive-indent]] - Keeps your code always indented automatically.
 
-#+BEGIN_SRC elisp
+Sin embargo, no lo uso en todos los lenguajes.
+
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package aggressive-indent
     :ensure t
@@ -465,10 +368,8 @@ cursor on the places where we will write the new values.
 
 #+END_SRC
 ** Auto-complete
-   
- [[https://github.com/Fuco1/smartparens][SmartParens]] - Deals with parens pairs and tries to be smart about it.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package auto-complete
     :ensure t
@@ -479,7 +380,7 @@ cursor on the places where we will write the new values.
 
  [[https://company-mode.github.io/][Company]] - A text completion framework.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package company-mode
     :init
@@ -490,7 +391,7 @@ cursor on the places where we will write the new values.
 I will add company-quickhelp. You can use it with M-h and show
 documentation next to company options.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package company-quickhelp
     :ensure t
@@ -499,50 +400,28 @@ documentation next to company options.
               '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)))
 
 #+END_SRC
-** Fly-check
-
- [[https://github.com/flycheck/flycheck][Flycheck]] - Modern on-the-fly syntax checking meant to be a
- replacement to =FlyMake=
-
-#+BEGIN_SRC elisp
-
-  (use-package flycheck
-    :ensure t
-    :init (global-flycheck-mode))
-
-#+END_SRC
-** 
-
-#+BEGIN_SRC elisp
-
-  (provide 'programming-settings)
-
-#+END_SRC
 * Programming Language
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/programming-language-settings.el
-:END:
-
 ** Haskell
 
  [[https://github.com/haskell/haskell-mode][haskell-mode]] - Major mode for Haskell.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package haskell-mode
     :ensure t
-    :mode "\\.hs'\\"
-    :config (add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
+    :mode "\\.hs\\'"
+    :config 
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
     (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+    (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
     )
 
 #+END_SRC
-
 ** Scala
  [[https://github.com/hvesalai/scala-mode2][scala-mode2]] - scala major mode for emacs 24. Based on the Scala
  Language Specification 2.9
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package scala-mode2
     :interpreter
@@ -552,49 +431,14 @@ documentation next to company options.
 
  [[http://ensime.github.io/][Ensime]] - ENhanced Scala Interaction Mode for Emacs
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package ensime
+    :pin melpa-stable
+    :ensure t
     :commands ensime ensime-mode
     :init  (add-hook 'scala-mode-hook 'ensime-mode))
 
-
-#+END_SRC
-   
-** Erlang
-The basic mode for editing Erlang is erlang-mode, of course.
-
-For the basic usage, you can follot this link to the [[http://erlang.org/doc/man/erlang.el.html][Erlang-mode cheatsheet]].
-#+BEGIN_SRC elisp
-
-  (use-package erlang
-    :ensure t
-    :mode "\\.erl'\\")
-
-#+END_SRC
-
-EDTS is package of development tools for Erlang in Emacs. It provides
-in-buffer flymake compilation, auto-completion and many things. For
-the full list of features, you can check its [[https://github.com/tjarvstrand/edts][github page]].
-
-#+BEGIN_SRC elisp
-
-  (use-package edts
-    :ensure t
-    :init (add-hook 'erlang-mode-hook 'edst-start)
-    )
-
-#+END_SRC
-
-** Java
-
-Starting with JDEE - https://github.com/jdee-emacs/jdee
-
-#+BEGIN_SRC elisp
-
-  (use-package jdee
-    :ensure t
-    )
 
 #+END_SRC
 
@@ -605,10 +449,11 @@ Emacs package to bring powerful Python editing to Emacs. It combines
 and configures a number of other packages, both written in Emacs Lisp
 as well as Python.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package elpy
     :ensure t
+    :mode "\\.hs\\'"
     :init (elpy-enable))
 
 #+END_SRC
@@ -616,7 +461,7 @@ as well as Python.
 ** Matlab
 
 We will need to add ~matlab~ to our path. With a symlink.
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package matlab-mode
     :ensure t
@@ -627,24 +472,24 @@ We will need to add ~matlab~ to our path. With a symlink.
     (setq matlab-shell-command-switches (list "-nodesktop"))
     )
 
-#+END_SRC
+#+END_SRC   
+** Erlang
 
-** 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
-(provide 'programming-languages-settings)
+  (use-package erlang  
+      :ensure t
+      :mode "\\.erl\\'"
+      :config (erlang-mode)
+      )
 
 #+END_SRC
 * Visual
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/visual-settings.el
-:END:
-
 ** Rainbow Delimiters
 
 https://github.com/Fanael/rainbow-delimiters
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
   (use-package rainbow-delimiters
     :ensure t
     :init
@@ -657,7 +502,7 @@ https://github.com/Fanael/rainbow-delimiters
 
 [[https://julien.danjou.info/projects/emacs-packages][Rainbow-mode]] - Display color on color-code string (hex/rgb) directly.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package rainbow-mode
     :ensure t
@@ -667,23 +512,13 @@ https://github.com/Fanael/rainbow-delimiters
 #+END_SRC
 
 <2016-04-13 mié 00:42>
-** 
-
-#+BEGIN_SRC elisp
-
-  (provide 'visual-settings)
-
-#+END_SRC
 * Editing
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/editing-settings.el
-:END:
 
 ** Multiple cursors
 
  [[https://github.com/magnars/multiple-cursors.el][Multiple cursors]] - Mark, edit multiple lines at once.
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package multiple-cursors
     :ensure t
@@ -695,75 +530,10 @@ https://github.com/Fanael/rainbow-delimiters
 
 #+END_SRC
 
-** 
-
-#+BEGIN_SRC elisp
-
-  (provide 'editing-settings)
-
-#+END_SRC
-
 * Notes
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/notes-settings.el
-:END:
-** Org
-
- #+BEGIN_SRC elisp
-
-   (use-package org-mode
-     :mode ("\\.org\\'" . org-mode)
-     :bind (("\C-cl" . org-store-link)
-            ("\C-ca" . org-agenda)
-            ("\C-cc" . org-capture)
-            ("\C-cb" . org-iswitchb))
-     :config (setq org-src-fontify-natively t)
-     (setq org-default-notes-file "~/org/organizer.org")
-     (setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
-
-     )
-
- #+END_SRC
-** Agenda
-
-#+BEGIN_SRC elisp
-
-  (setq org-log-done 'time) ;;Marcar fecha de tarea completada
-
-  (setq org-agenda-files (list "~/org/General.org"
-                               "~/org/ACM/ACM.org"
-                               "~/org/Katas/Katas.org"
-                               "~/org/UPM/UPM.org")) ; Global TODO list
-
-  (setq org-agenda-include-diary t)
-
-  ; FUNCTIONS
-  (defun diary-schedule (m1 d1 y1 m2 d2 y2 dayname)
-    "Entry applies if date is between dates on DAYNAME.  
-      Order of the parameters is M1, D1, Y1, M2, D2, Y2 if
-      `european-calendar-style' is nil, and D1, M1, Y1, D2, M2, Y2 if
-      `european-calendar-style' is t. Entry does not apply on a history."
-    (let ((date1 (calendar-absolute-from-gregorian
-                  (if european-calendar-style
-                      (list d1 m1 y1)
-                    (list m1 d1 y1))))
-          (date2 (calendar-absolute-from-gregorian
-                  (if european-calendar-style
-                      (list d2 m2 y2)
-                    (list m2 d2 y2))))
-          (d (calendar-absolute-from-gregorian date)))
-      (if (and 
-           (<= date1 d) 
-           (<= d date2)
-           (= (calendar-day-of-week date) dayname)
-           (not (check-calendar-holidays date))
-           )
-          entry)))
-
-#+END_SRC
 ** Org Babel
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -775,32 +545,9 @@ https://github.com/Fanael/rainbow-delimiters
      ))
 
 #+END_SRC
-** Ob-translate
-
-https://github.com/krisajenkins/ob-translate
-
-This is a complement to org-babel. Ob-translate requires
-[[#google-translate][Google Translate]] to works.
-
-Use:
-
-| Argument | Description              | Example                             | Default                      |
-|----------+--------------------------+-------------------------------------+------------------------------|
-| =:src=   | Source language.         | =#+BEGIN_SRC translate :src de=     | 'auto' (for auto detection). |
-| =:dest=  | Destination language(s). | =#+BEGIN_SRC translate :dest it,fr= | 'en' (for English).          |
-
-=:dest= may be a single country-code, or a comma-separated list.
-
-#+BEGIN_SRC elisp
-
-  (use-package ob-translate
-    :ensure t)
-
-#+END_SRC
-
 ** Minted
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package ox-latex
     :init (add-to-list 'org-latex-packages-alist '("" "minted"))
@@ -824,28 +571,18 @@ wich requires =Node.js= and =Grunt=.
 Once we have installed reveal.js, you should change de
 =org-reveal-root= variable in the next code block with your own path:
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package ox-reveal
     :ensure t
     :config
-    (setq org-reveal-root "file:///home/ignaciobll/reveal.js")
+    (setq org-reveal-root "file:///home/ignaciobll/.reveal.js")
     )
-
-#+END_SRC
-
-** Org - journal
-
-#+BEGIN_SRC elisp
-
-  (use-package org-journal
-    :ensure t
-    :init (setq org-journal-dir "~/org/personal/journal/"))
 
 #+END_SRC
 ** Auto-fill
 
-#+BEGIN_SRC elisp 
+#+BEGIN_SRC elisp :tangle ./init.el 
 
   (use-package auto-fill-mode
     :bind ("C-c q" . turn-on-auto-fill-mode)
@@ -854,7 +591,7 @@ Once we have installed reveal.js, you should change de
 
 #+END_SRC
 ** Org tree slide
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
 (use-package org-tree-slide
   :ensure t
@@ -874,7 +611,7 @@ Once we have installed reveal.js, you should change de
 #+END_SRC
 ** xah-math-input
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package xah-math-input
     :ensure t)
@@ -889,28 +626,70 @@ https://github.com/snosov1/toc-org
 
 Shortcut to a =:Toc:= tag:  =C-c C-q T RET=
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package toc-org
     :ensure t
     :init (add-to-list 'org-tag-alist '("TOC" . ?T)))
 
 #+END_SRC
-** 
 
-#+BEGIN_SRC elisp
+** Markdown
 
-  (provide 'notes-settings)
+#+BEGIN_SRC elisp :tangle ./init.el
+  (use-package markdown-mode
+    :ensure t
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+           ("\\.md\\'" . markdown-mode)
+           ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "multimarkdown"))
+#+END_SRC
+
+** Cheatsheet
+
+Cuando se quieren aprender nuevos módulos, es útil tener una lista con
+las combinaciones de teclado más comunes para recordar fácilmente cómo
+hacer las acciones básicas.
+
+#+BEGIN_SRC elisp :tangle ./init.el
+
+  (use-package cheatsheet
+    :ensure t
+    :config
+    (cheatsheet-add :group 'Erlang
+                    :key "C-c C-q"
+                    :description "Indents the current Erlang function. - (erlang-indent-function)")
+    (cheatsheet-add :group 'Erlang
+		    :key "C-c C-j"
+		    :description "Create a new clause in the current Erlang function. The point is placed between the parentheses of the argument list.  (erlang-generate-new-clause)")
+    (cheatsheet-add :group 'Erlang 
+		    :key "C-c C-y" 
+		    :description "Copy the function arguments of the preceding Erlang clause. This command is useful when defining a new clause with almost the same argument as the preceding.  (erlang-clone-arguments)")
+    (cheatsheet-add :group 'Erlang 
+		    :key "C-c C-a" 
+		    :description "aligns arrows after clauses inside a region.  (erlang-align-arrows)")
+    (cheatsheet-add :group 'Erlang
+                    :key "C-c C-k"
+                    :description "Kompila ")
+    (cheatsheet-add :group 'Erlang
+                    :key "C-c C-z"
+                    :description "Abre una nueva terminal interactiva de Erlang")  
+    (cheatsheet-add :group 'Emacs
+                    :key "C-x r s r"
+                    :description "Copy region into register r (copy-to-register).")
+    (cheatsheet-add :group 'Emacs
+                    :key "C-x r i r"
+                    :description "Insert text from register r (insert-register).")
+
+    :bind ("C-c C-s" . cheatsheet-show)
+    )
 
 #+END_SRC
 * Version Control
-:PROPERTIES:
-:tangle:   ~/.emacs.d/config/version-control-settings.el
-:END:
-
 ** Magit 
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package magit
     :ensure t
@@ -920,111 +699,23 @@ Shortcut to a =:Toc:= tag:  =C-c C-q T RET=
 
 #+END_SRC
 
-** 
-
-#+BEGIN_SRC elisp
-
-  (provide 'version-control-settings)
-
-#+END_SRC
-
 * Console
-:PROPERTIES:
-:tangle: ~/.emacs.d/config/console-settings.el
-:END:
 
 ** Multi-term
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle ./init.el
 
   (use-package multi-term
     :ensure t
     :config (setq multi-term-program "/bin/zsh"))
 
 #+END_SRC
-
-** 
-
-#+BEGIN_SRC elisp
-
-  (provide 'console-settings)
-
-#+END_SRC
 * Google
-:PROPERTIES:
-:tangle: ~/.emacs.d/config/google-settings.el
-:END:
 
-** Google Translate
+LeMacsGTFY
 
-#+BEGIN_SRC elisp
-
-  (use-package google-translate
+#+BEGIN_SRC elisp :tangle ./init.el
+  (use-package google-this
     :ensure t
-    :bind ("C-c t" . google-translate-smooth-translate)
-    :init (require 'google-translate-smooth-ui))
-
-#+END_SRC
-** Calendar
-
-#+BEGIN_SRC elisp
-
-  (use-package request
-    :ensure t)
-
-  (use-package alert
-    :ensure t)
-
-  (when (file-readable-p "~/.emacs.d/tokens.el")
-        (load "~/.emacs.d/tokens.el"))
-  (when (and (boundp 'gcal-client-id) (boundp 'gcal-client-secret) (boundp 'gcal-email))
-    (use-package org-gcal
-      :ensure t
-      :config
-      (setq org-gcal-client-id gcal-client-id
-            org-gcal-client-secret gcal-client-secret
-            org-gcal-file-alist `((,gcal-email .  "~/org/personal/calendar/ibg.org")))))
-
-#+END_SRC
-** 
-
-#+BEGIN_SRC elisp
-
-  (provide 'google-settings)
-
-#+END_SRC
-* Latex
-:PROPERTIES:
-:tangle: ~/.emacs.d/config/latex-settings.el
-:END:
-
-** AUCTex
-#+BEGIN_SRC elisp
-
-#+END_SRC
-
-** 
-#+BEGIN_SRC elisp
-
-  (provide 'latex-settings)
-
-#+END_SRC
-
-* Telegram
-:PROPERTIES:
-:tangle: ~/.emacs.d/config/tegmacs-settings.el
-:END:
-** Tegmacs
-
-#+BEGIN_SRC elisp
-  (use-package tegmacs
-    :load-path "~/.emacs.d/plugins/tegmacs/"
-    )
-#+END_SRC
-
-** 
-#+BEGIN_SRC elisp
-
-  (provide 'tegmacs-settings)
-
+    :init (google-this-mode 1))
 #+END_SRC
