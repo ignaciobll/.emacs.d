@@ -135,19 +135,25 @@
   :ensure t
   :mode "\\.erl\\'"
   :config (erlang-mode)
-  (add-to-list 'load-path "/usr/lib/erlang/lib/eqc-1.39.2/emacs/")
-  (autoload 'eqc-erlang-mode-hook "eqc-ext" "EQC Mode" t)
-  (add-hook 'erlang-mode-hook 'eqc-erlang-mode-hook)
-  (setq eqc-max-menu-length 30)
-  (setq eqc-root-dir "/usr/lib/erlang/lib/eqc-1.39.2")
-  ;; EQC Emacs Mode -- Configuration End
+  )
 
-  ;; Erlang Emacs Mode -- Configuration Start
-  (setq erlang-root-dir "/usr/lib/erlang")
-  (setq load-path (cons "/usr/lib/erlang/lib/tools-2.9.1/emacs" load-path))
-  (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-  (require 'erlang-start)
-  ;; Erlang Emacs Mode -- Configuration End
+(add-to-list 'load-path "/usr/lib/erlang/lib/eqc-1.39.2/emacs/")
+(autoload 'eqc-erlang-mode-hook "eqc-ext" "EQC Mode" t)
+(add-hook 'erlang-mode-hook 'eqc-erlang-mode-hook)
+(setq eqc-max-menu-length 30)
+(setq eqc-root-dir "/usr/lib/erlang/lib/eqc-1.39.2")
+;; EQC Emacs Mode -- Configuration End
+
+;; Erlang Emacs Mode -- Configuration Start
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq load-path (cons "/usr/lib/erlang/lib/tools-2.9.1/emacs" load-path))
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+(require 'erlang-start)
+;; Erlang Emacs Mode -- Configuration End
+
+(use-package json-mode
+  :ensure t
+  :mode (("\\.json\\'". json-mode)("\\.jsch\\'" . json-mode))
   )
 
 (use-package rainbow-delimiters
@@ -194,7 +200,7 @@
 (use-package auto-fill-mode
   :bind ("C-c q" . turn-on-auto-fill-mode)
   :init (add-hook 'org-mode-hook 'turn-on-auto-fill)
-  :config (add-hook 'org-mode-hook 'xah-math-input-mode))
+  )
 
 (use-package org-tree-slide
   :ensure t
